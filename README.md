@@ -69,7 +69,7 @@ let merlin = Developer(
 
 <div align="center">
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=MerlinLpz&theme=tokyonight)
+![GitHub Streak](https://streak-stats.demolab.com/?user=MerlinLpz&theme=tokyonight)
 
 </div>
 
