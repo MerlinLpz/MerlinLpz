@@ -4,736 +4,386 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Merlin Limpieza de Oficinas</title>
-  <meta name="description" content="Merlin — limpieza profesional de oficinas. Espacios de trabajo impecables, como por arte de magia." />
+  <meta name="description" content="Merlin — limpieza de oficinas con estándares de excelencia. Discreción, precisión y cuidado en cada detalle." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L50 50 H14 Z' fill='%236d3fd8'/%3E%3Crect x='8' y='48' width='48' height='8' rx='4' fill='%234b23a8'/%3E%3Crect x='17' y='42' width='30' height='6' fill='%23f5c542'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111'/%3E%3Cpath d='M22 46 L33 12 L42 46 M16 46 H48' fill='none' stroke='%23b89b5e' stroke-width='2.5'/%3E%3C/svg%3E" />
   <style>
     :root {
-      --night: #140b2e;
-      --night-2: #1f1247;
-      --violet: #6d3fd8;
-      --violet-deep: #4b23a8;
-      --gold: #f5c542;
-      --gold-soft: #ffe08a;
-      --aqua: #5ee7df;
-      --ink: #1b1530;
-      --muted: #5d5776;
-      --paper: #faf8ff;
-      --card: #ffffff;
-      --line: #e6e0f5;
-      --radius: 22px;
+      --ivory: #f7f4ee;
+      --stone: #ece7dd;
+      --ink: #111111;
+      --char: #1a1917;
+      --muted: #6f6a61;
+      --muted-dark: #9c968b;
+      --gold: #b89b5e;
+      --gold-light: #d4bd8a;
+      --line: rgba(17, 17, 17, .12);
+      --line-dark: rgba(247, 244, 238, .14);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Manrope", system-ui, sans-serif;
+      --ease: cubic-bezier(.2, .7, .1, 1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: "Outfit", system-ui, sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.6;
-      overflow-x: hidden;
+    body { font-family: var(--sans); font-weight: 300; color: var(--ink); background: var(--ivory); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1200px, 100% - 48px); margin-inline: auto; }
+    .label { font-size: .72rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.05; letter-spacing: -.01em; }
+    em { font-style: italic; color: var(--gold); }
+
+    /* ---------- Navegación ---------- */
+    .nav { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .5s var(--ease), border-color .5s; border-bottom: 1px solid transparent; }
+    .nav.scrolled { background: rgba(247, 244, 238, .92); backdrop-filter: blur(14px); border-color: var(--line); }
+    .nav .wrap { height: 88px; display: flex; align-items: center; justify-content: space-between; transition: height .5s var(--ease); }
+    .nav.scrolled .wrap { height: 70px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand svg { width: 34px; height: 34px; }
+    .brand-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; letter-spacing: .38em; }
+    .nav ul { display: flex; gap: 44px; list-style: none; }
+    .nav ul a { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; position: relative; padding-bottom: 4px; }
+    .nav ul a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
+    .nav ul a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .btn { display: inline-flex; align-items: center; gap: 14px; padding: 18px 34px; font: 500 .76rem var(--sans); letter-spacing: .24em; text-transform: uppercase; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color .5s var(--ease); }
+    .btn::before { content: ""; position: absolute; inset: 0; background: var(--ink); transform: translateY(101%); transition: transform .5s var(--ease); z-index: -1; }
+    .btn:hover { color: var(--ivory); }
+    .btn:hover::before { transform: none; }
+    .btn .arrow { width: 22px; height: 1px; background: currentColor; position: relative; transition: width .5s var(--ease); }
+    .btn .arrow::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+    .btn:hover .arrow { width: 34px; }
+    .btn-dark { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+    .btn-dark::before { background: var(--gold); }
+    .btn-light { color: var(--ivory); }
+    .btn-light::before { background: var(--ivory); }
+    .btn-light:hover { color: var(--ink); }
+    .nav .btn { padding: 13px 24px; }
+
+    /* ---------- Portada ---------- */
+    .hero { min-height: 100vh; display: grid; align-items: end; padding: 160px 0 90px; position: relative; overflow: hidden; isolation: isolate; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(900px 600px at 85% 20%, rgba(212, 189, 138, .22), transparent 60%),
+        radial-gradient(700px 500px at 0% 100%, rgba(236, 231, 221, .9), transparent 60%),
+        var(--ivory);
     }
-    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.1; }
-    a { color: inherit; }
-    .wrap { width: min(1140px, 100% - 32px); margin-inline: auto; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: end; }
+    .hero h1 { font-size: clamp(3.4rem, 8.4vw, 8.2rem); margin: 28px 0 0; }
+    .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+    .hero h1 .line span { display: block; transform: translateY(110%); animation: rise 1.4s var(--ease) forwards; }
+    .hero h1 .line:nth-child(2) span { animation-delay: .15s; }
+    .hero h1 .line:nth-child(3) span { animation-delay: .3s; }
+    .hero-side { padding-bottom: 14px; opacity: 0; animation: fade 1.4s .7s var(--ease) forwards; }
+    .hero-side p { color: var(--muted); font-size: 1.08rem; max-width: 36ch; margin-bottom: 40px; }
+    .hero-meta { margin-top: 90px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 30px; font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: 0; animation: fade 1.4s 1s var(--ease) forwards; }
+    .hero-meta span::before { content: ""; display: inline-block; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); margin-right: 14px; vertical-align: middle; }
+    @keyframes rise { to { transform: none; } }
+    @keyframes fade { to { opacity: 1; } }
 
-    /* ---------- NAV ---------- */
-    .nav {
-      position: fixed; inset: 0 0 auto 0; z-index: 50;
-      transition: background .3s, box-shadow .3s;
-    }
-    .nav.scrolled { background: rgba(20, 11, 46, .85); backdrop-filter: blur(12px); box-shadow: 0 8px 30px rgba(0,0,0,.25); }
-    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-family: "Fraunces", serif; font-weight: 800; font-size: 1.4rem; }
-    .brand svg { width: 42px; height: 42px; }
-    .brand small { display: block; font-family: "Outfit", sans-serif; font-weight: 500; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); margin-top: -4px; }
-    .nav ul { display: flex; gap: 28px; list-style: none; }
-    .nav ul a { color: #e9e3ff; text-decoration: none; font-weight: 500; font-size: .95rem; }
-    .nav ul a:hover { color: var(--gold); }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 26px; border-radius: 999px; border: 0; cursor: pointer;
-      font: 600 1rem "Outfit", sans-serif; text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-gold { background: linear-gradient(135deg, var(--gold), #ffb938); color: var(--night); box-shadow: 0 10px 30px rgba(245,197,66,.35); }
-    .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.25); }
-    .nav .btn { padding: 10px 20px; font-size: .9rem; white-space: nowrap; }
+    /* Brillo sutil que recorre la palabra destacada */
+    .sheen { background: linear-gradient(100deg, var(--gold) 0%, var(--gold) 40%, #f3e6c4 50%, var(--gold) 60%, var(--gold) 100%); background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sheen 6s 2s ease-in-out infinite; padding-right: .08em; }
+    @keyframes sheen { 0% { background-position: 100% 0; } 30%, 100% { background-position: -50% 0; } }
 
-    /* ---------- HERO ---------- */
-    .hero {
-      position: relative; min-height: 100vh; display: grid; align-items: center;
-      background: radial-gradient(1200px 600px at 75% 30%, #3a1d8a 0%, transparent 60%),
-                  radial-gradient(800px 500px at 10% 90%, #1d4d6b 0%, transparent 60%),
-                  var(--night);
-      color: #fff; overflow: hidden; padding: 110px 0 60px;
-    }
-    #stars { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-    .hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(245,197,66,.12); color: var(--gold-soft); font-size: .85rem; font-weight: 500; letter-spacing: .04em; }
-    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 18px 0; font-weight: 800; }
-    .hero h1 .magic-word {
-      background: linear-gradient(90deg, var(--gold), var(--aqua), var(--gold));
-      background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
-      animation: shimmer 4s linear infinite;
-    }
-    .hero p.lead { font-size: 1.2rem; color: #cfc6f2; max-width: 34ch; }
-    .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
-    @keyframes shimmer { to { background-position: 200% center; } }
+    /* ---------- Bloques ---------- */
+    section { padding: 150px 0; }
+    .intro { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
+    .intro p.big { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.25; font-weight: 300; }
+    .intro p.small { color: var(--muted); max-width: 52ch; margin-top: 36px; }
 
-    .wizard { position: relative; width: min(440px, 100%); aspect-ratio: 1; margin-inline: auto; }
-    .wizard svg { width: 100%; height: 100%; overflow: visible; }
-    .hat { animation: bob 4s ease-in-out infinite; transform-origin: 200px 300px; }
-    .wand { animation: wave 2.4s ease-in-out infinite; transform-origin: 270px 330px; }
-    .wand-tip { animation: pulse 1.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-    .burst circle, .burst path { transform-box: fill-box; transform-origin: center; animation: burst 2.4s ease-out infinite; }
-    .burst :nth-child(2) { animation-delay: .3s; } .burst :nth-child(3) { animation-delay: .6s; }
-    .burst :nth-child(4) { animation-delay: .9s; } .burst :nth-child(5) { animation-delay: 1.2s; }
-    .burst :nth-child(6) { animation-delay: 1.5s; }
-    @keyframes bob { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-14px) rotate(2deg); } }
-    @keyframes wave { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(14deg); } }
-    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .7; } }
-    @keyframes burst { 0% { transform: translate(0,0) scale(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(1.2); opacity: 0; } }
+    .dark { background: var(--char); color: var(--ivory); }
+    .dark .muted { color: var(--muted-dark); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 80px; }
+    .section-head h2 { font-size: clamp(2.6rem, 5.4vw, 4.8rem); margin-top: 22px; }
+    .section-head p { max-width: 38ch; }
 
-    .scroll-hint { position: absolute; bottom: 24px; left: 50%; translate: -50% 0; color: #bfb4ec; font-size: .85rem; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .scroll-hint span { width: 24px; height: 38px; border: 2px solid currentColor; border-radius: 14px; position: relative; }
-    .scroll-hint span::after { content: ""; position: absolute; left: 50%; top: 6px; width: 4px; height: 8px; border-radius: 2px; background: var(--gold); translate: -50% 0; animation: scrolldot 1.6s infinite; }
-    @keyframes scrolldot { to { transform: translateY(14px); opacity: 0; } }
+    .services { list-style: none; border-top: 1px solid var(--line-dark); }
+    .service { display: grid; grid-template-columns: 90px 1fr 1.1fr 40px; gap: 30px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--line-dark); position: relative; }
+    .service::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease); }
+    .service:hover::before { transform: scaleX(1); }
+    .service .num { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 1.1rem; }
+    .service h3 { font-size: clamp(1.7rem, 2.8vw, 2.5rem); transition: transform .7s var(--ease); }
+    .service:hover h3 { transform: translateX(14px); }
+    .service p { color: var(--muted-dark); font-size: .98rem; }
+    .service .plus { width: 18px; height: 18px; position: relative; justify-self: end; transition: transform .7s var(--ease); }
+    .service .plus::before, .service .plus::after { content: ""; position: absolute; background: var(--gold); }
+    .service .plus::before { left: 0; top: 50%; width: 100%; height: 1px; }
+    .service .plus::after { top: 0; left: 50%; height: 100%; width: 1px; }
+    .service:hover .plus { transform: rotate(90deg); }
 
-    /* ---------- MAGIC SCROLL SCENE ---------- */
-    .magic { position: relative; height: 340vh; background: linear-gradient(var(--night), var(--night-2) 30%, var(--night-2)); }
-    .magic-stage { position: sticky; top: 0; height: 100vh; padding-top: 72px; display: grid; place-items: center; overflow: hidden; }
-    .magic-inner { width: min(1000px, 100% - 32px); text-align: center; color: #fff; }
-    .magic-title { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 8px; }
-    .magic-sub { color: #cfc6f2; margin-bottom: 22px; }
-    .scene-frame {
-      position: relative; border-radius: 28px; margin-inline: auto;
-      width: min(100%, calc((100vh - 300px) * 800 / 460)); overflow: hidden;
-      box-shadow: 0 40px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08);
-      background: #2a2150;
-    }
-    .scene-frame svg { display: block; width: 100%; height: auto; }
-    .dirt { transform-box: fill-box; transform-origin: center; }
-    .sparkle-pop { transform-box: fill-box; transform-origin: center; animation: pop 1s ease-out forwards; }
-    @keyframes pop { 0% { transform: scale(0) rotate(0); opacity: 1; } 60% { opacity: 1; } 100% { transform: scale(1.6) rotate(90deg); opacity: 0; } }
-    .meter { display: flex; align-items: center; gap: 14px; margin: 18px auto 0; max-width: 520px; font-weight: 600; }
-    .meter-bar { flex: 1; height: 10px; border-radius: 999px; background: rgba(255,255,255,.12); overflow: hidden; }
-    .meter-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--aqua), var(--gold)); border-radius: inherit; }
-    .scene-tag { position: absolute; top: 16px; left: 16px; padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: .85rem; background: rgba(0,0,0,.55); color: #fff; transition: background .4s; }
-    .scene-tag.clean { background: linear-gradient(135deg, var(--aqua), #3cc6bd); color: var(--night); }
+    .method { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+    .step { padding: 44px 34px 10px 0; position: relative; }
+    .step + .step { padding-left: 34px; border-left: 1px solid var(--line); }
+    .step .num { font-family: var(--serif); font-size: 4.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .step h3 { font-size: 1.7rem; margin: 26px 0 12px; }
+    .step p { color: var(--muted); font-size: .95rem; }
 
-    /* ---------- SECTIONS ---------- */
-    section.block { padding: 110px 0; }
-    .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
-    .section-head .eyebrow { background: #efe9ff; color: var(--violet); }
-    .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 14px 0 12px; }
-    .section-head p { color: var(--muted); font-size: 1.1rem; }
+    .quote { text-align: center; background: var(--stone); }
+    .quote .ornament { width: 60px; margin: 0 auto 44px; display: block; }
+    .quote blockquote { font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1.2; font-weight: 300; max-width: 22ch; margin: 0 auto; }
+    .quote cite { display: block; margin-top: 40px; font-style: normal; }
 
-    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .card {
-      position: relative; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 30px; overflow: hidden; transition: transform .35s, box-shadow .35s, border-color .35s;
-    }
-    .card::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(115deg, transparent 30%, rgba(245,197,66,.25) 48%, rgba(94,231,223,.25) 52%, transparent 70%);
-      transform: translateX(-120%); transition: transform .8s ease;
-    }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(75,35,168,.15); border-color: #cdbff5; }
-    .card:hover::before { transform: translateX(120%); }
-    .icon { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, #efe9ff, #e0fbf9); margin-bottom: 18px; }
-    .icon svg { width: 30px; height: 30px; stroke: var(--violet); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .card h3 { font-size: 1.3rem; margin-bottom: 8px; }
-    .card p { color: var(--muted); }
+    .standards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 80px; }
+    .standard { padding: 38px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 40px 1fr; gap: 20px; }
+    .standard .mark { width: 9px; height: 9px; border: 1px solid var(--gold); transform: rotate(45deg); margin-top: 14px; }
+    .standard h3 { font-size: 1.6rem; margin-bottom: 8px; }
+    .standard p { color: var(--muted); font-size: .95rem; }
 
-    .steps-section { background: linear-gradient(180deg, #f2edff, var(--paper)); }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; }
-    .steps::before { content: ""; position: absolute; top: 34px; left: 16%; right: 16%; height: 2px; background: repeating-linear-gradient(90deg, var(--violet) 0 8px, transparent 8px 16px); opacity: .35; }
-    .step { text-align: center; position: relative; }
-    .step-num {
-      width: 68px; height: 68px; margin: 0 auto 18px; border-radius: 50%; display: grid; place-items: center;
-      background: var(--night); color: var(--gold); font: 800 1.6rem "Fraunces", serif;
-      box-shadow: 0 0 0 8px #f2edff, 0 12px 30px rgba(20,11,46,.3);
-    }
-    .step h3 { font-size: 1.25rem; margin-bottom: 6px; }
-    .step p { color: var(--muted); max-width: 30ch; margin-inline: auto; }
+    /* ---------- Contacto ---------- */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 100px; }
+    .contact h2 { font-size: clamp(2.8rem, 5.6vw, 5rem); margin: 22px 0 30px; }
+    .contact-list { list-style: none; margin-top: 56px; display: grid; gap: 22px; }
+    .contact-list li { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line-dark); }
+    .contact-list .k { font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; color: var(--muted-dark); padding-top: 4px; }
+    form { display: grid; gap: 38px; }
+    .field { position: relative; }
+    .field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line-dark); color: var(--ivory); padding: 26px 0 12px; font: 300 1.05rem var(--sans); border-radius: 0; appearance: none; resize: none; }
+    .field select { cursor: pointer; }
+    .field select option { color: var(--ink); }
+    .field label { position: absolute; left: 0; top: 0; font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--muted-dark); }
+    .field::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
+    .field:focus-within::after { transform: scaleX(1); }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(247, 244, 238, .3); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
+    .field.select::before { content: ""; position: absolute; right: 4px; bottom: 20px; width: 7px; height: 7px; border-right: 1px solid var(--gold); border-bottom: 1px solid var(--gold); transform: rotate(45deg); pointer-events: none; }
 
-    .why { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .why h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin: 14px 0 18px; }
-    .why .eyebrow { background: #efe9ff; color: var(--violet); }
-    .checks { list-style: none; display: grid; gap: 16px; margin-top: 24px; }
-    .checks li { display: flex; gap: 14px; align-items: flex-start; }
-    .checks li b { display: block; }
-    .checks li span { color: var(--muted); }
-    .check { flex: none; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--aqua), #3cc6bd); display: grid; place-items: center; color: var(--night); font-weight: 800; }
-    .why-visual {
-      position: relative; aspect-ratio: 1; border-radius: 32px; overflow: hidden;
-      background: radial-gradient(circle at 30% 30%, #3a1d8a, var(--night));
-      display: grid; place-items: center;
-    }
-    .why-visual svg { width: 70%; }
-    .bubble { position: absolute; bottom: -40px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(94,231,223,.35) 40%, rgba(94,231,223,.08) 70%); border: 1px solid rgba(255,255,255,.35); animation: rise linear infinite; }
-    @keyframes rise { to { transform: translate(var(--drift), -520px); opacity: 0; } }
+    footer { background: var(--char); color: var(--muted-dark); border-top: 1px solid var(--line-dark); padding: 40px 0; font-size: .76rem; letter-spacing: .18em; text-transform: uppercase; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    footer .brand-name { color: var(--ivory); font-size: 1.2rem; }
 
-    .contact { background: var(--night); color: #fff; border-radius: 36px; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; position: relative; overflow: hidden; }
-    .contact::after { content: ""; position: absolute; width: 420px; height: 420px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(109,63,216,.6), transparent 70%); pointer-events: none; }
-    .contact h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 14px; }
-    .contact p { color: #cfc6f2; }
-    .contact form { display: grid; gap: 14px; position: relative; z-index: 1; }
-    .contact .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .contact label { font-size: .85rem; color: #bfb4ec; display: grid; gap: 6px; }
-    .contact input, .contact select, .contact textarea {
-      width: 100%; padding: 13px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.06); color: #fff; font: 400 1rem "Outfit", sans-serif;
-    }
-    .contact select option { color: var(--ink); }
-    .contact input:focus, .contact select:focus, .contact textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
-    .contact-info { list-style: none; display: grid; gap: 12px; margin-top: 28px; }
-    .contact-info li { display: flex; gap: 12px; align-items: center; color: #e9e3ff; }
-
-    footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: .9rem; }
-    footer .brand { color: var(--ink); justify-content: center; margin-bottom: 8px; }
-
-    /* reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+    /* Aparición suave al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.3s var(--ease), transform 1.3s var(--ease); }
     .reveal.in { opacity: 1; transform: none; }
-    .reveal[data-delay="1"] { transition-delay: .1s; } .reveal[data-delay="2"] { transition-delay: .2s; }
-    .reveal[data-delay="3"] { transition-delay: .3s; } .reveal[data-delay="4"] { transition-delay: .4s; }
-    .reveal[data-delay="5"] { transition-delay: .5s; }
+    .reveal.d1 { transition-delay: .12s; } .reveal.d2 { transition-delay: .24s; } .reveal.d3 { transition-delay: .36s; }
 
-    /* cursor sparkle trail */
-    .trail { position: fixed; pointer-events: none; z-index: 100; width: 14px; height: 14px; translate: -50% -50%; animation: trail .9s ease-out forwards; }
-    @keyframes trail { to { transform: translateY(24px) scale(0) rotate(120deg); opacity: 0; } }
-
-    @media (max-width: 900px) {
-      .nav ul, .brand small { display: none; }
-      .nav .btn { padding: 9px 16px; font-size: .85rem; }
-      .hero .wrap, .why, .contact { grid-template-columns: 1fr; }
-      .hero { text-align: center; }
-      .hero p.lead { margin-inline: auto; }
-      .hero .ctas { justify-content: center; }
-      .wizard { width: min(300px, 80%); order: -1; }
-      .services, .steps { grid-template-columns: 1fr; }
-      .steps::before { display: none; }
-      .contact { padding: 36px 22px; border-radius: 28px; }
-      .contact .row { grid-template-columns: 1fr; }
-      .magic { height: 280vh; }
+    @media (max-width: 960px) {
+      .nav ul { display: none; }
+      .hero-grid, .intro, .contact-grid, .standards { grid-template-columns: 1fr; gap: 40px; }
+      .hero-meta { flex-direction: column; gap: 14px; margin-top: 60px; }
+      .section-head { flex-direction: column; align-items: start; }
+      .service { grid-template-columns: 50px 1fr 24px; gap: 16px; }
+      .service p { grid-column: 2 / 3; grid-row: 2; }
+      .service .plus { grid-column: 3; grid-row: 1; }
+      .method { grid-template-columns: 1fr 1fr; }
+      .step:nth-child(3) { border-left: 0; padding-left: 0; }
+      .step:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .contact-grid { gap: 70px; }
+      section { padding: 100px 0; }
     }
-    @media (min-width: 901px) and (max-width: 1080px) { .services { grid-template-columns: repeat(2, 1fr); } }
-
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav .btn { display: none; }
+      .brand-name { letter-spacing: .3em; }
+      .method { grid-template-columns: 1fr; }
+      .step + .step { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .field-row { grid-template-columns: 1fr; }
+      .contact-list li { grid-template-columns: 1fr; gap: 4px; }
+      footer .wrap { flex-direction: column; text-align: center; }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
-      html { scroll-behavior: auto; }
+      .hero h1 .line span { transform: none; }
+      .hero-side, .hero-meta, .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo reutilizable (sombrero de mago + varita) -->
+  <!-- Monograma: sombrero de mago y varita en trazo fino dorado -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="hatGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#8a5cf0" /><stop offset="1" stop-color="#4b23a8" />
-      </linearGradient>
-      <symbol id="logo" viewBox="0 0 64 64">
-        <path d="M34 4 C30 18 22 34 14 48 H50 C46 36 44 22 42 12 C40 8 37 6 34 4 Z" fill="url(#hatGrad)" />
-        <ellipse cx="32" cy="50" rx="26" ry="7" fill="#3b1a8a" />
-        <path d="M17 43 H47 L48.5 48 H15.5 Z" fill="#f5c542" />
-        <path d="M30 22 l1.2 2.6 2.8.3-2.1 1.9.6 2.8-2.5-1.4-2.5 1.4.6-2.8-2.1-1.9 2.8-.3z" fill="#ffe08a" />
-        <circle cx="38" cy="33" r="1.4" fill="#ffe08a" />
-        <rect x="40" y="36" width="24" height="3.4" rx="1.7" transform="rotate(-40 52 37.7)" fill="#1b1530" />
-        <rect x="56.2" y="24.6" width="5" height="3.4" rx="1" transform="rotate(-40 58.7 26.3)" fill="#fff" />
-        <path d="M60 14 l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#f5c542" />
-      </symbol>
-    </defs>
+    <symbol id="logo" viewBox="0 0 64 64">
+      <g fill="none" stroke="#b89b5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 46 L31 10 Q34 6 36 12 L44 46" />
+        <path d="M10 46 Q32 54 54 46" />
+        <path d="M19.5 41 H42.5" />
+        <path d="M40 30 L57 17" />
+        <path d="M57 8 V12 M57 22 V26 M48 17 H52 M62 17 H64" stroke-width="1.2" />
+      </g>
+    </symbol>
   </svg>
 
   <nav class="nav" id="nav">
     <div class="wrap">
-      <a class="brand" href="#inicio">
+      <a class="brand" href="#inicio" aria-label="Merlin, inicio">
         <svg><use href="#logo" /></svg>
-        <span>Merlin<small>Limpieza de oficinas</small></span>
+        <span class="brand-name">MERLIN</span>
       </a>
       <ul>
-        <li><a href="#magia">La magia</a></li>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#proceso">Cómo funciona</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#estandares">Estándares</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <a class="btn btn-gold" href="#contacto">Pide presupuesto</a>
+      <a class="btn" href="#contacto">Solicitar visita</a>
     </div>
   </nav>
 
-  <!-- ================= HERO ================= -->
+  <!-- ================= PORTADA ================= -->
   <header class="hero" id="inicio">
-    <canvas id="stars"></canvas>
     <div class="wrap">
-      <div class="reveal in">
-        <span class="eyebrow">✦ Limpieza profesional solo para oficinas</span>
-        <h1>Tu oficina impecable, <span class="magic-word">como por arte de magia.</span></h1>
-        <p class="lead">Soy Merlin. Llego cuando tu equipo se va y, al día siguiente, todo brilla: escritorios, suelos, cocinas y baños listos para trabajar.</p>
-        <div class="ctas">
-          <a class="btn btn-gold" href="#contacto">✨ Presupuesto gratis</a>
-          <a class="btn btn-ghost" href="#magia">Ver la magia ↓</a>
+      <div class="hero-grid">
+        <div>
+          <span class="label">Limpieza de oficinas · Milán</span>
+          <h1>
+            <span class="line"><span>El arte de</span></span>
+            <span class="line"><span>una oficina</span></span>
+            <span class="line"><span><em class="sheen">impecable.</em></span></span>
+          </h1>
+        </div>
+        <div class="hero-side">
+          <p>Un servicio de limpieza pensado para empresas que cuidan cada detalle. Discreto, preciso y siempre a la altura de su imagen.</p>
+          <a class="btn btn-dark" href="#contacto">Solicitar una visita <span class="arrow"></span></a>
         </div>
       </div>
-
-      <div class="wizard" aria-hidden="true">
-        <svg viewBox="0 0 400 400">
-          <defs>
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0" stop-color="#f5c542" stop-opacity=".9" />
-              <stop offset="1" stop-color="#f5c542" stop-opacity="0" />
-            </radialGradient>
-            <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-              <stop offset="0" stop-color="#6d3fd8" stop-opacity=".55" />
-              <stop offset="1" stop-color="#6d3fd8" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          <circle cx="200" cy="230" r="190" fill="url(#halo)" />
-          <g class="hat">
-            <ellipse cx="190" cy="330" rx="150" ry="34" fill="#2c1170" />
-            <path d="M205 40 C185 110 140 210 95 312 H285 C268 240 255 160 248 100 C244 70 228 52 205 40 Z" fill="url(#hatGrad)" />
-            <path d="M205 40 C228 52 244 70 248 100 C255 160 268 240 285 312 H250 C238 230 230 150 225 95 C222 70 215 52 205 40 Z" fill="#000" opacity=".15" />
-            <path d="M104 288 H276 L285 318 H95 Z" fill="#f5c542" />
-            <rect x="172" y="286" width="36" height="34" rx="4" fill="none" stroke="#2c1170" stroke-width="6" />
-            <path d="M190 140 l6 13 14 1.5-10.5 9.5 3 14-12.5-7-12.5 7 3-14-10.5-9.5 14-1.5z" fill="#ffe08a" />
-            <circle cx="225" cy="210" r="6" fill="#ffe08a" />
-            <circle cx="160" cy="235" r="4" fill="#ffe08a" />
-            <path d="M232 160 l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5z" fill="#fff" />
-          </g>
-          <g class="wand">
-            <rect x="260" y="150" width="14" height="190" rx="7" transform="rotate(35 267 245)" fill="#1b1530" />
-            <rect x="260" y="150" width="14" height="34" rx="4" transform="rotate(35 267 245)" fill="#fff" />
-            <g transform="translate(330 155)">
-              <circle r="38" fill="url(#glow)" class="wand-tip" />
-              <path class="wand-tip" d="M0 -20 l5 15 15 5-15 5-5 15-5-15-15-5 15-5z" fill="#fff" />
-              <g class="burst">
-                <circle r="5" fill="#f5c542" style="--dx:40px;--dy:-50px" />
-                <circle r="4" fill="#5ee7df" style="--dx:60px;--dy:10px" />
-                <path d="M0 -7 l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" style="--dx:-30px;--dy:-60px" />
-                <circle r="3" fill="#fff" style="--dx:20px;--dy:50px" />
-                <path d="M0 -6 l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#f5c542" style="--dx:-55px;--dy:-10px" />
-                <circle r="4" fill="#ffe08a" style="--dx:50px;--dy:-20px" />
-              </g>
-            </g>
-          </g>
-        </svg>
+      <div class="hero-meta">
+        <span>Exclusivo para oficinas</span>
+        <span>Horario a su medida</span>
+        <span>Trato personal y directo</span>
       </div>
     </div>
-    <div class="scroll-hint"><span></span>Desliza</div>
   </header>
 
-  <!-- ================= ESCENA MÁGICA (scroll) ================= -->
-  <section class="magic" id="magia">
-    <div class="magic-stage">
-      <div class="magic-inner">
-        <h2 class="magic-title">Un toque de varita… y adiós suciedad</h2>
-        <p class="magic-sub">Desliza hacia abajo y mira cómo queda tu oficina.</p>
-        <div class="scene-frame">
-          <span class="scene-tag" id="sceneTag">Antes</span>
-          <svg id="scene" viewBox="0 0 800 460" role="img" aria-label="Una oficina sucia que se va limpiando con una varita mágica">
-            <defs>
-              <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ede6ff" /><stop offset="1" stop-color="#d9cff7" /></linearGradient>
-              <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9a68a" /><stop offset="1" stop-color="#9d8a6e" /></linearGradient>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd3ff" /><stop offset="1" stop-color="#d7f1ff" /></linearGradient>
-              <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#fff" stop-opacity="0" /><stop offset=".5" stop-color="#fff" stop-opacity=".55" /><stop offset="1" stop-color="#fff" stop-opacity="0" />
-              </linearGradient>
-              <radialGradient id="wandGlow"><stop offset="0" stop-color="#ffe08a" stop-opacity="1" /><stop offset="1" stop-color="#f5c542" stop-opacity="0" /></radialGradient>
-              <filter id="blur4"><feGaussianBlur stdDeviation="4" /></filter>
-              <clipPath id="floorClip"><rect x="0" y="360" width="800" height="100" /></clipPath>
-            </defs>
-
-            <!-- Pared y suelo -->
-            <rect width="800" height="360" fill="url(#wall)" />
-            <rect y="360" width="800" height="100" fill="url(#floor)" />
-            <g stroke="#8c7a60" stroke-width="2" opacity=".5">
-              <line x1="0" y1="395" x2="800" y2="395" /><line x1="0" y1="430" x2="800" y2="430" />
-              <line x1="120" y1="360" x2="100" y2="395" /><line x1="330" y1="395" x2="320" y2="430" /><line x1="560" y1="360" x2="570" y2="395" /><line x1="700" y1="395" x2="715" y2="430" />
-            </g>
-            <rect y="352" width="800" height="10" fill="#c3b6e6" />
-
-            <!-- Ventana -->
-            <rect x="50" y="50" width="200" height="170" rx="8" fill="#fff" />
-            <rect x="60" y="60" width="180" height="150" fill="url(#sky)" />
-            <g fill="#6aa8d6">
-              <rect x="70" y="140" width="30" height="70" /><rect x="105" y="115" width="28" height="95" /><rect x="138" y="150" width="25" height="60" /><rect x="168" y="100" width="34" height="110" /><rect x="207" y="135" width="28" height="75" />
-            </g>
-            <rect x="147" y="60" width="6" height="150" fill="#fff" /><rect x="60" y="132" width="180" height="6" fill="#fff" />
-            <rect id="windowGleam" x="60" y="60" width="60" height="150" fill="url(#shine)" opacity="0" transform="skewX(-20)" />
-
-            <!-- Reloj y cuadro -->
-            <circle cx="400" cy="90" r="34" fill="#fff" stroke="#4b23a8" stroke-width="5" />
-            <line x1="400" y1="90" x2="400" y2="68" stroke="#1b1530" stroke-width="4" stroke-linecap="round" />
-            <line x1="400" y1="90" x2="416" y2="98" stroke="#1b1530" stroke-width="3" stroke-linecap="round" />
-            <rect x="560" y="60" width="140" height="100" rx="6" fill="#fff" />
-            <rect x="570" y="70" width="120" height="80" fill="#5ee7df" />
-            <path d="M570 150 L615 100 L645 130 L665 110 L690 150 Z" fill="#6d3fd8" />
-            <circle cx="665" cy="88" r="9" fill="#f5c542" />
-
-            <!-- Escritorio -->
-            <rect x="290" y="290" width="330" height="16" rx="4" fill="#6b4f3a" />
-            <rect x="305" y="306" width="12" height="62" fill="#55402f" /><rect x="593" y="306" width="12" height="62" fill="#55402f" />
-            <rect x="470" y="306" width="120" height="50" fill="#5c4532" /><rect x="520" y="326" width="22" height="4" rx="2" fill="#c9b18f" />
-            <!-- Monitor -->
-            <rect x="360" y="200" width="150" height="90" rx="8" fill="#1b1530" />
-            <rect x="368" y="208" width="134" height="72" rx="4" fill="#3a2d6b" />
-            <rect x="380" y="222" width="60" height="6" rx="3" fill="#5ee7df" /><rect x="380" y="236" width="90" height="6" rx="3" fill="#8a76d6" /><rect x="380" y="250" width="40" height="6" rx="3" fill="#f5c542" />
-            <rect x="425" y="282" width="20" height="10" fill="#1b1530" />
-            <!-- Teclado y taza -->
-            <rect x="380" y="280" width="110" height="8" rx="3" fill="#cfc6f2" />
-            <rect x="535" y="262" width="24" height="28" rx="4" fill="#fff" /><path d="M559 268 q10 0 10 9 q0 8 -10 8" fill="none" stroke="#fff" stroke-width="4" />
-            <!-- Silla -->
-            <rect x="640" y="240" width="70" height="80" rx="14" fill="#4b23a8" />
-            <rect x="632" y="310" width="86" height="16" rx="8" fill="#3b1a8a" />
-            <rect x="670" y="326" width="10" height="28" fill="#2c1170" />
-            <path d="M640 368 L675 352 L710 368" stroke="#2c1170" stroke-width="6" fill="none" stroke-linecap="round" />
-            <!-- Planta -->
-            <path d="M745 300 q-30 -40 -10 -80 q15 30 10 80 M745 300 q30 -50 5 -90 q-15 40 -5 90 M745 300 q-45 -15 -50 -45 q35 5 50 45" fill="#3cae7a" />
-            <path d="M725 300 h40 l-6 60 h-28z" fill="#e47b5a" />
-            <!-- Papelera -->
-            <path d="M225 320 h40 l-5 48 h-30z" fill="#7a6aa6" />
-
-            <!-- Brillo en el suelo (aparece al limpiar) -->
-            <g clip-path="url(#floorClip)">
-              <rect id="floorShine" x="-200" y="360" width="160" height="100" fill="url(#shine)" opacity="0" transform="skewX(-25)" />
-            </g>
-
-            <!-- SUCIEDAD: cada elemento desaparece cuando pasa la varita -->
-            <g id="dirtLayer">
-              <!-- Telarañas -->
-              <g class="dirt" stroke="#7c7394" stroke-width="1.5" fill="none" opacity=".8">
-                <path d="M0 0 L70 0 M0 0 L0 70 M0 0 L60 45 M0 0 L35 65 M10 0 Q12 12 0 10 M28 0 Q30 28 0 26 M48 0 Q48 46 0 46" />
-              </g>
-              <g class="dirt" stroke="#7c7394" stroke-width="1.5" fill="none" opacity=".8">
-                <path d="M800 0 L730 0 M800 0 L800 70 M800 0 L745 50 M780 0 Q778 18 800 20 M760 0 Q758 38 800 40" />
-              </g>
-              <!-- Manchas en la ventana -->
-              <g class="dirt" fill="#7f6f55" opacity=".55" filter="url(#blur4)">
-                <circle cx="90" cy="90" r="16" /><circle cx="180" cy="170" r="20" /><circle cx="210" cy="80" r="12" />
-              </g>
-              <!-- Polvo en el cuadro -->
-              <g class="dirt" fill="#8e8578" opacity=".6" filter="url(#blur4)">
-                <ellipse cx="630" cy="110" rx="60" ry="30" />
-              </g>
-              <!-- Mancha de café en el escritorio -->
-              <g class="dirt"><ellipse cx="510" cy="292" rx="34" ry="6" fill="#6b3f1d" opacity=".8" /><ellipse cx="530" cy="293" rx="10" ry="3" fill="#6b3f1d" opacity=".8" /></g>
-              <!-- Huellas en la pantalla -->
-              <g class="dirt" fill="#bfb6d9" opacity=".5"><ellipse cx="400" cy="245" rx="8" ry="11" /><ellipse cx="470" cy="230" rx="7" ry="10" /><ellipse cx="450" cy="262" rx="8" ry="11" /></g>
-              <!-- Papeles tirados -->
-              <g class="dirt"><rect x="140" y="400" width="40" height="28" fill="#fff" transform="rotate(-18 160 414)" /></g>
-              <g class="dirt"><rect x="420" y="410" width="38" height="26" fill="#f4f1e6" transform="rotate(14 439 423)" /></g>
-              <g class="dirt"><rect x="610" y="380" width="34" height="24" fill="#fff" transform="rotate(-8 627 392)" /></g>
-              <!-- Bolas de papel -->
-              <circle class="dirt" cx="270" cy="410" r="11" fill="#f1ede2" stroke="#cfc6b0" stroke-width="2" />
-              <circle class="dirt" cx="250" cy="378" r="9" fill="#f1ede2" stroke="#cfc6b0" stroke-width="2" />
-              <circle class="dirt" cx="560" cy="440" r="10" fill="#f1ede2" stroke="#cfc6b0" stroke-width="2" />
-              <!-- Manchas en el suelo -->
-              <ellipse class="dirt" cx="80" cy="430" rx="45" ry="12" fill="#6e5a3c" opacity=".7" />
-              <ellipse class="dirt" cx="350" cy="440" rx="55" ry="10" fill="#6e5a3c" opacity=".6" />
-              <ellipse class="dirt" cx="700" cy="420" rx="40" ry="10" fill="#6e5a3c" opacity=".7" />
-              <!-- Nubes de polvo -->
-              <g class="dirt" fill="#9a907f" opacity=".45" filter="url(#blur4)"><circle cx="200" cy="350" r="22" /><circle cx="225" cy="345" r="16" /></g>
-              <g class="dirt" fill="#9a907f" opacity=".45" filter="url(#blur4)"><circle cx="500" cy="372" r="22" /><circle cx="525" cy="366" r="16" /></g>
-              <!-- Hojas caídas de la planta -->
-              <path class="dirt" d="M760 380 q10 -12 22 0 q-10 10 -22 0z" fill="#8a7b3a" />
-              <path class="dirt" d="M720 395 q10 -12 22 0 q-10 10 -22 0z" fill="#8a7b3a" />
-            </g>
-
-            <g id="sparkleLayer"></g>
-
-            <!-- Varita que barre la escena -->
-            <g id="sceneWand" transform="translate(-120 200)">
-              <circle r="60" fill="url(#wandGlow)" opacity=".7" />
-              <g transform="rotate(35)">
-                <rect x="-6" y="0" width="12" height="130" rx="6" fill="#1b1530" />
-                <rect x="-6" y="0" width="12" height="24" rx="4" fill="#fff" />
-              </g>
-              <path d="M0 -18 l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#fff" />
-            </g>
-          </svg>
-        </div>
-        <div class="meter">
-          <span>Limpieza</span>
-          <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
-          <span id="meterVal">0%</span>
-        </div>
+  <!-- ================= FILOSOFÍA ================= -->
+  <section>
+    <div class="wrap intro">
+      <span class="label reveal">La filosofía</span>
+      <div>
+        <p class="big reveal d1">Un espacio de trabajo impecable no se nota: <em>se siente</em>. En la primera impresión de un cliente, en la concentración de un equipo, en la calma de empezar cada día en orden.</p>
+        <p class="small reveal d2">Merlin nace con una sola especialidad: la limpieza de oficinas. Trabajo en silencio, fuera de su horario, para que al día siguiente solo encuentre lo esencial — un lugar perfecto donde trabajar.</p>
       </div>
     </div>
   </section>
 
   <!-- ================= SERVICIOS ================= -->
-  <section class="block" id="servicios">
+  <section class="dark" id="servicios">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">✦ Servicios</span>
-        <h2>Todo lo que tu oficina necesita</h2>
-        <p>Me especializo solo en espacios de trabajo, así que conozco cada rincón que hay que cuidar.</p>
+      <div class="section-head">
+        <div class="reveal">
+          <span class="label">Servicios</span>
+          <h2>Cada rincón,<br /><em>con intención.</em></h2>
+        </div>
+        <p class="muted reveal d1">Un servicio integral que se adapta a la forma de trabajar de su empresa, con la misma exigencia en cada visita.</p>
       </div>
-      <div class="services">
-        <article class="card reveal" data-delay="1">
-          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="3" rx="1" /><path d="M5 14v6M19 14v6M8 11V6h8v5" /></svg></div>
-          <h3>Puestos de trabajo</h3>
-          <p>Escritorios, teclados, pantallas y teléfonos desinfectados sin mover tus papeles de sitio.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11" /><path d="M10 20v-5h4v5" /></svg></div>
-          <h3>Suelos y alfombras</h3>
-          <p>Aspirado, fregado y abrillantado según el tipo de suelo: madera, vinilo, baldosa o moqueta.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M7 3v8a5 5 0 0 0 10 0V3" /><path d="M12 16v5M8 21h8" /></svg></div>
-          <h3>Baños y aseos</h3>
-          <p>Desinfección completa, reposición de papel y jabón, y un olor fresco que se nota.</p>
-        </article>
-        <article class="card reveal" data-delay="1">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M6 8h10v6a5 5 0 0 1-10 0z" /><path d="M16 9h2a2 2 0 0 1 0 4h-2M9 3v2M13 3v2" /></svg></div>
-          <h3>Cocinas y office</h3>
-          <p>Microondas, nevera, cafetera y encimeras limpias para que el café sepa mejor.</p>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1" /><path d="M12 3v18M4 12h16" /></svg></div>
-          <h3>Cristales y ventanas</h3>
-          <p>Ventanas, mamparas y puertas de vidrio sin marcas ni huellas. Más luz para tu equipo.</p>
-        </article>
-        <article class="card reveal" data-delay="3">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z" /></svg></div>
-          <h3>Limpiezas a fondo</h3>
-          <p>Después de obras, mudanzas o eventos: dejo la oficina lista para estrenar.</p>
-        </article>
+      <ul class="services">
+        <li class="service reveal"><span class="num">01</span><h3>Puestos de trabajo</h3><p>Escritorios, pantallas, teclados y teléfonos tratados con cuidado, sin alterar el orden de sus documentos.</p><span class="plus"></span></li>
+        <li class="service reveal"><span class="num">02</span><h3>Recepción y zonas comunes</h3><p>La primera impresión de su empresa, siempre impecable: entrada, salas de reunión y pasillos.</p><span class="plus"></span></li>
+        <li class="service reveal"><span class="num">03</span><h3>Suelos y superficies</h3><p>Tratamiento específico para madera, mármol, vinilo o moqueta, respetando cada material.</p><span class="plus"></span></li>
+        <li class="service reveal"><span class="num">04</span><h3>Aseos y office</h3><p>Higiene completa, reposición de consumibles y cocinas listas para el día siguiente.</p><span class="plus"></span></li>
+        <li class="service reveal"><span class="num">05</span><h3>Cristales y vidrio</h3><p>Ventanas, mamparas y puertas de cristal sin una sola marca.</p><span class="plus"></span></li>
+        <li class="service reveal"><span class="num">06</span><h3>Limpiezas a fondo</h3><p>Tras reformas, mudanzas o eventos: su oficina, lista para estrenar.</p><span class="plus"></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= MÉTODO ================= -->
+  <section id="metodo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <span class="label">El método</span>
+          <h2>Simple para usted.<br /><em>Riguroso para mí.</em></h2>
+        </div>
+      </div>
+      <div class="method">
+        <div class="step reveal"><div class="num">I</div><h3>Conversación</h3><p>Me cuenta cómo es su oficina, su ritmo de trabajo y lo que espera del servicio.</p></div>
+        <div class="step reveal d1"><div class="num">II</div><h3>Visita</h3><p>Conozco el espacio en persona para entender cada material y cada necesidad.</p></div>
+        <div class="step reveal d2"><div class="num">III</div><h3>Propuesta</h3><p>Recibe un plan a medida con un presupuesto claro y sin letra pequeña.</p></div>
+        <div class="step reveal d3"><div class="num">IV</div><h3>Servicio</h3><p>Limpieza en el horario acordado, con la misma atención en cada visita.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= PROCESO ================= -->
-  <section class="block steps-section" id="proceso">
+  <!-- ================= CITA ================= -->
+  <section class="quote">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">✦ Cómo funciona</span>
-        <h2>Tres pasos y listo</h2>
-        <p>Sin complicaciones, sin contratos eternos.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal" data-delay="1"><div class="step-num">1</div><h3>Me cuentas</h3><p>Tamaño de la oficina, cuántas veces por semana y qué te preocupa más.</p></div>
-        <div class="step reveal" data-delay="2"><div class="step-num">2</div><h3>Te visito</h3><p>Paso a ver el espacio y te envío un presupuesto claro, sin sorpresas.</p></div>
-        <div class="step reveal" data-delay="3"><div class="step-num">3</div><h3>Hago magia</h3><p>Limpio en el horario que mejor te venga, sin interrumpir a tu equipo.</p></div>
-      </div>
+      <svg class="ornament reveal" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo" /></svg>
+      <blockquote class="reveal d1">“La verdadera elegancia está en los detalles que nadie ve, pero todos perciben.”</blockquote>
+      <cite class="label reveal d2">Merlin</cite>
     </div>
   </section>
 
-  <!-- ================= POR QUÉ ================= -->
-  <section class="block">
-    <div class="wrap why">
-      <div class="reveal">
-        <span class="eyebrow">✦ Por qué Merlin</span>
-        <h2>Un equipo que rinde empieza en un espacio limpio</h2>
-        <p style="color:var(--muted)">Una oficina ordenada transmite profesionalidad a tus clientes y hace que tu equipo trabaje a gusto.</p>
-        <ul class="checks">
-          <li><span class="check">✓</span><div><b>Horario flexible</b><span>Antes de abrir, al cerrar o en fin de semana.</span></div></li>
-          <li><span class="check">✓</span><div><b>Productos respetuosos</b><span>Limpiadores eficaces y cuidadosos con las personas y el entorno.</span></div></li>
-          <li><span class="check">✓</span><div><b>Trato directo</b><span>Hablas siempre conmigo, sin intermediarios.</span></div></li>
-          <li><span class="check">✓</span><div><b>Discreción y confianza</b><span>Respeto tus documentos, equipos y espacio de trabajo.</span></div></li>
-        </ul>
+  <!-- ================= ESTÁNDARES ================= -->
+  <section id="estandares">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <span class="label">Estándares</span>
+          <h2>Lo que puede<br /><em>esperar siempre.</em></h2>
+        </div>
       </div>
-      <div class="why-visual reveal" data-delay="2" id="bubbles">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#logo" /></svg>
+      <div class="standards">
+        <div class="standard reveal"><span class="mark"></span><div><h3>Discreción absoluta</h3><p>Respeto total por su espacio, sus equipos y la confidencialidad de sus documentos.</p></div></div>
+        <div class="standard reveal d1"><span class="mark"></span><div><h3>Horario a su medida</h3><p>Antes de abrir, al cerrar o en fin de semana. Su equipo no notará mi presencia, solo el resultado.</p></div></div>
+        <div class="standard reveal"><span class="mark"></span><div><h3>Trato directo</h3><p>Sin intermediarios ni centralitas: un único interlocutor que conoce su oficina.</p></div></div>
+        <div class="standard reveal d1"><span class="mark"></span><div><h3>Productos selectos</h3><p>Productos profesionales, eficaces y respetuosos con las personas y los materiales nobles.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- ================= CONTACTO ================= -->
-  <section class="block" id="contacto" style="padding-top:20px">
-    <div class="wrap">
-      <div class="contact reveal">
-        <div>
-          <h2>¿Hacemos brillar tu oficina?</h2>
-          <p>Cuéntame un poco sobre tu espacio y te respondo con un presupuesto sin compromiso.</p>
-          <ul class="contact-info">
-            <li>📍 Milán y alrededores</li>
-            <li>🕐 Lunes a sábado · horario a convenir</li>
-            <li>💬 Respuesta rápida por WhatsApp</li>
-          </ul>
-        </div>
-        <form id="quoteForm">
-          <div class="row">
-            <label>Nombre<input name="nombre" required placeholder="Tu nombre" /></label>
-            <label>Empresa<input name="empresa" placeholder="Nombre de la empresa" /></label>
-          </div>
-          <div class="row">
-            <label>Tamaño aproximado<select name="tamano">
-              <option>Menos de 50 m²</option><option>50 – 150 m²</option><option>150 – 300 m²</option><option>Más de 300 m²</option>
-            </select></label>
-            <label>Frecuencia<select name="frecuencia">
-              <option>Diaria</option><option>2–3 veces por semana</option><option>Semanal</option><option>Limpieza puntual</option>
-            </select></label>
-          </div>
-          <label>Mensaje<textarea name="mensaje" rows="3" placeholder="¿Algo en especial que deba saber?"></textarea></label>
-          <button class="btn btn-gold" type="submit">✨ Enviar por WhatsApp</button>
-        </form>
+  <section class="dark contact" id="contacto">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="label reveal">Contacto</span>
+        <h2 class="reveal d1">Hablemos de<br /><em>su espacio.</em></h2>
+        <p class="muted reveal d2">Cuénteme sobre su oficina y le propondré una visita sin compromiso.</p>
+        <ul class="contact-list reveal d3">
+          <li><span class="k">Zona</span><span>Milán y alrededores</span></li>
+          <li><span class="k">Horario</span><span>Lunes a sábado, a convenir</span></li>
+          <li><span class="k">Contacto</span><span>WhatsApp, respuesta personal</span></li>
+        </ul>
       </div>
+      <form id="quoteForm" class="reveal d1">
+        <div class="field-row">
+          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" required placeholder="Su nombre" /></div>
+          <div class="field"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa" placeholder="Nombre de la empresa" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field select"><label for="f-tamano">Superficie</label>
+            <select id="f-tamano" name="tamano"><option>Menos de 100 m²</option><option>100 – 300 m²</option><option>300 – 600 m²</option><option>Más de 600 m²</option></select>
+          </div>
+          <div class="field select"><label for="f-frecuencia">Frecuencia</label>
+            <select id="f-frecuencia" name="frecuencia"><option>Diaria</option><option>2–3 veces por semana</option><option>Semanal</option><option>Servicio puntual</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-mensaje">Mensaje</label><textarea id="f-mensaje" name="mensaje" rows="3" placeholder="Cuénteme lo que considere importante"></textarea></div>
+        <div><button class="btn btn-light" type="submit">Enviar solicitud <span class="arrow"></span></button></div>
+      </form>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <a class="brand" href="#inicio"><svg><use href="#logo" /></svg><span>Merlin</span></a>
-      <p>© <span id="year"></span> Merlin · Limpieza de oficinas</p>
+      <span class="brand-name">MERLIN</span>
+      <span>Limpieza de oficinas · Milán</span>
+      <span>© <span id="year"></span></span>
     </div>
   </footer>
 
   <script>
-    // ⚠️ Cambia este número por el tuyo (formato internacional, sin + ni espacios)
+    // Cambie este número por el suyo (formato internacional, sin + ni espacios)
     const WHATSAPP_NUMBER = "390000000000";
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* ---------- Nav al hacer scroll ---------- */
     const nav = document.getElementById("nav");
-    const onNav = () => nav.classList.toggle("scrolled", window.scrollY > 40);
-    window.addEventListener("scroll", onNav, { passive: true }); onNav();
+    const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 30);
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-    /* ---------- Aparición al hacer scroll ---------- */
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
-    /* ---------- Cielo estrellado del hero ---------- */
-    (() => {
-      const c = document.getElementById("stars"), ctx = c.getContext("2d");
-      let stars = [], w, h;
-      const resize = () => {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = c.offsetWidth; h = c.offsetHeight;
-        c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        stars = Array.from({ length: Math.round(w * h / 6000) }, () => ({
-          x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.6 + .3,
-          p: Math.random() * Math.PI * 2, s: Math.random() * .02 + .005, v: Math.random() * .15 + .02,
-        }));
-      };
-      const draw = () => {
-        ctx.clearRect(0, 0, w, h);
-        for (const s of stars) {
-          s.p += s.s; s.y -= s.v; if (s.y < -5) { s.y = h + 5; s.x = Math.random() * w; }
-          ctx.globalAlpha = .35 + Math.sin(s.p) * .35 + .3;
-          ctx.fillStyle = s.r > 1.4 ? "#ffe08a" : "#ffffff";
-          ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
-        }
-        if (!reduceMotion) requestAnimationFrame(draw);
-      };
-      resize(); draw();
-      window.addEventListener("resize", resize);
-    })();
-
-    /* ---------- Rastro de chispas que sigue al cursor ---------- */
-    if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
-      const colors = ["#f5c542", "#5ee7df", "#ffffff", "#b79bff"];
-      let last = 0;
-      window.addEventListener("pointermove", (e) => {
-        const now = performance.now(); if (now - last < 35) return; last = now;
-        const s = document.createElement("div");
-        s.className = "trail";
-        s.style.left = e.clientX + "px"; s.style.top = e.clientY + "px";
-        s.innerHTML = `<svg viewBox="0 0 20 20"><path d="M10 0l2.5 7.5L20 10l-7.5 2.5L10 20l-2.5-7.5L0 10l7.5-2.5z" fill="${colors[Math.random() * colors.length | 0]}"/></svg>`;
-        document.body.appendChild(s);
-        setTimeout(() => s.remove(), 900);
-      });
-    }
-
-    /* ---------- Escena: la varita limpia la oficina al hacer scroll ---------- */
-    (() => {
-      const section = document.getElementById("magia");
-      const wand = document.getElementById("sceneWand");
-      const sparkles = document.getElementById("sparkleLayer");
-      const tag = document.getElementById("sceneTag");
-      const fill = document.getElementById("meterFill");
-      const val = document.getElementById("meterVal");
-      const floorShine = document.getElementById("floorShine");
-      const windowGleam = document.getElementById("windowGleam");
-      const NS = "http://www.w3.org/2000/svg";
-
-      // Posición horizontal de cada mancha (centro de su caja)
-      const dirt = [...document.querySelectorAll("#dirtLayer .dirt")].map((el) => {
-        const b = el.getBBox();
-        return { el, x: b.x + b.width / 2, y: b.y + b.height / 2, base: parseFloat(el.getAttribute("opacity") || 1), popped: false };
-      });
-
-      const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-      let lastX = null;
-
-      const spawnSparkle = (x, y, size = 1) => {
-        const g = document.createElementNS(NS, "path");
-        const s = 8 * size;
-        g.setAttribute("d", `M${x} ${y - s} l${s * .3} ${s * .7} ${s * .7} ${s * .3} -${s * .7} ${s * .3} -${s * .3} ${s * .7} -${s * .3} -${s * .7} -${s * .7} -${s * .3} ${s * .7} -${s * .3}z`);
-        g.setAttribute("fill", ["#ffe08a", "#ffffff", "#5ee7df"][Math.random() * 3 | 0]);
-        g.setAttribute("class", "sparkle-pop");
-        sparkles.appendChild(g);
-        setTimeout(() => g.remove(), 1000);
-      };
-
-      const update = () => {
-        const r = section.getBoundingClientRect();
-        const p = clamp(-r.top / (r.height - window.innerHeight));
-        const wx = -120 + clamp(p / .85) * 1040;  // entra por la izquierda y sale por la derecha (el final queda limpio)
-        const wy = 230 + Math.sin(p * Math.PI * 6) * 150;
-        wand.setAttribute("transform", `translate(${wx} ${wy}) rotate(${Math.sin(p * 30) * 15})`);
-
-        let cleaned = 0;
-        for (const d of dirt) {
-          const k = clamp((wx - d.x + 20) / 80);     // 0 = sucio, 1 = limpio
-          d.el.style.opacity = d.base * (1 - k);
-          d.el.style.transform = `scale(${1 - k * .7})`;
-          if (k >= 1) cleaned++;
-          if (k > .3 && !d.popped) { d.popped = true; if (!reduceMotion) for (let i = 0; i < 3; i++) spawnSparkle(d.x + (Math.random() - .5) * 40, d.y + (Math.random() - .5) * 30, Math.random() + .6); }
-          if (k < .1) d.popped = false;
-        }
-
-        // Estela de la varita
-        if (!reduceMotion && lastX !== null && Math.abs(wx - lastX) > 6 && wx > 0 && wx < 800) spawnSparkle(wx + (Math.random() - .5) * 30, wy + (Math.random() - .5) * 30, .6);
-        lastX = wx;
-
-        const pct = Math.round(cleaned / dirt.length * 100);
-        fill.style.width = pct + "%"; val.textContent = pct + "%";
-        const done = pct === 100;
-        tag.textContent = done ? "Después ✨" : (pct > 0 ? "Limpiando…" : "Antes");
-        tag.classList.toggle("clean", done);
-        floorShine.setAttribute("opacity", clamp((p - .5) * 3));
-        floorShine.setAttribute("x", -200 + clamp((p - .55) / .45) * 1200);
-        windowGleam.setAttribute("opacity", clamp((wx - 150) / 100) * .9);
-        windowGleam.setAttribute("x", 60 + clamp((p - .3) / .7) * 200);
-      };
-
-      let ticking = false;
-      window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); } }, { passive: true });
-      window.addEventListener("resize", update);
-      update();
-    })();
-
-    /* ---------- Burbujas flotantes ---------- */
-    (() => {
-      if (reduceMotion) return;
-      const box = document.getElementById("bubbles");
-      for (let i = 0; i < 14; i++) {
-        const b = document.createElement("span");
-        const size = 12 + Math.random() * 38;
-        b.className = "bubble";
-        b.style.cssText = `width:${size}px;height:${size}px;left:${Math.random() * 90}%;animation-duration:${6 + Math.random() * 6}s;animation-delay:${-Math.random() * 10}s;--drift:${(Math.random() - .5) * 80}px`;
-        box.appendChild(b);
-      }
-    })();
-
-    /* ---------- Formulario → WhatsApp ---------- */
     document.getElementById("quoteForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const f = new FormData(e.target);
-      const text = `Hola Merlin! Me gustaría un presupuesto de limpieza.\n\n` +
+      const text = `Buenos días, Merlin. Me gustaría solicitar una visita.\n\n` +
         `Nombre: ${f.get("nombre")}\nEmpresa: ${f.get("empresa") || "-"}\n` +
-        `Tamaño: ${f.get("tamano")}\nFrecuencia: ${f.get("frecuencia")}\n` +
+        `Superficie: ${f.get("tamano")}\nFrecuencia: ${f.get("frecuencia")}\n` +
         `Mensaje: ${f.get("mensaje") || "-"}`;
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     });
