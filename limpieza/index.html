@@ -1,372 +1,528 @@
 <!doctype html>
-<html lang="es">
+<html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Merlin Limpieza de Oficinas</title>
-  <meta name="description" content="Merlin — limpieza de oficinas con estándares de excelencia. Discreción, precisión y cuidado en cada detalle." />
+  <title>Merlin Pulizia Uffici Milano</title>
+  <meta name="description" content="Merlin — pulizia di uffici a Milano per PMI e studi professionali. Discrezione, precisione e un unico referente." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111'/%3E%3Cpath d='M22 46 L33 12 L42 46 M16 46 H48' fill='none' stroke='%23b89b5e' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1b36'/%3E%3Cpath d='M22 46 L33 12 L42 46 M16 46 H48' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
   <style>
     :root {
-      --ivory: #f7f4ee;
-      --stone: #ece7dd;
-      --ink: #111111;
-      --char: #1a1917;
-      --muted: #6f6a61;
-      --muted-dark: #9c968b;
-      --gold: #b89b5e;
-      --gold-light: #d4bd8a;
-      --line: rgba(17, 17, 17, .12);
-      --line-dark: rgba(247, 244, 238, .14);
+      --white: #ffffff;
+      --mist: #f3f6fb;
+      --ice: #e4ebf5;
+      --navy: #0d1b36;
+      --navy-2: #13264a;
+      --blue: #2f4f86;
+      --sky: #8fa9d4;
+      --ink: #0d1b36;
+      --muted: #5b6780;
+      --muted-dark: #a5b2c9;
+      --line: rgba(13, 27, 54, .12);
+      --line-dark: rgba(255, 255, 255, .14);
       --serif: "Cormorant Garamond", Georgia, serif;
       --sans: "Manrope", system-ui, sans-serif;
       --ease: cubic-bezier(.2, .7, .1, 1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); font-weight: 300; color: var(--ink); background: var(--ivory); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { font-family: var(--sans); font-weight: 300; color: var(--ink); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
     .wrap { width: min(1200px, 100% - 48px); margin-inline: auto; }
-    .label { font-size: .72rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.05; letter-spacing: -.01em; }
-    em { font-style: italic; color: var(--gold); }
+    .label { font-size: .72rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--blue); }
+    .dark .label { color: var(--sky); }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.05; letter-spacing: -.01em; }
+    h2 { font-size: clamp(2.5rem, 5vw, 4.4rem); margin-top: 18px; }
+    em { font-style: italic; color: var(--blue); }
+    .dark em { color: var(--sky); }
+    .muted { color: var(--muted); }
+    .dark .muted { color: var(--muted-dark); }
+    section { padding: 140px 0; }
+    .dark { background: var(--navy); color: var(--white); }
 
-    /* ---------- Navegación ---------- */
-    .nav { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .5s var(--ease), border-color .5s; border-bottom: 1px solid transparent; }
-    .nav.scrolled { background: rgba(247, 244, 238, .92); backdrop-filter: blur(14px); border-color: var(--line); }
-    .nav .wrap { height: 88px; display: flex; align-items: center; justify-content: space-between; transition: height .5s var(--ease); }
-    .nav.scrolled .wrap { height: 70px; }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .brand svg { width: 34px; height: 34px; }
-    .brand-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; letter-spacing: .38em; }
-    .nav ul { display: flex; gap: 44px; list-style: none; }
-    .nav ul a { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; position: relative; padding-bottom: 4px; }
-    .nav ul a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
+    /* ---------- Segnaposto per foto reali ----------
+       Basta salvare la foto con il nome indicato nella cartella img/:
+       se il file esiste, copre il segnaposto automaticamente. */
+    .photo { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--ice), var(--mist)); }
+    .photo::before {
+      content: ""; position: absolute; inset: 14px; border: 1px dashed rgba(47, 79, 134, .35);
+    }
+    .photo::after {
+      content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 30px;
+      font-size: .7rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--blue); opacity: .75; white-space: pre-line;
+    }
+    .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 1.6s var(--ease); }
+    .photo:hover img { transform: scale(1.04); }
+
+    /* ---------- Navigazione ---------- */
+    .nav { position: fixed; inset: 0 0 auto; z-index: 30; transition: background .5s var(--ease), border-color .5s; border-bottom: 1px solid transparent; }
+    .nav.scrolled { background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); border-color: var(--line); }
+    .nav .wrap { height: 86px; display: flex; align-items: center; justify-content: space-between; transition: height .5s var(--ease); }
+    .nav.scrolled .wrap { height: 68px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand svg { width: 32px; height: 32px; color: var(--navy); }
+    .brand-name { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; letter-spacing: .36em; }
+    .nav ul { display: flex; gap: 38px; list-style: none; }
+    .nav ul a { font-size: .76rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; position: relative; padding-bottom: 4px; }
+    .nav ul a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: var(--blue); transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
     .nav ul a:hover::after { transform: scaleX(1); transform-origin: left; }
 
-    .btn { display: inline-flex; align-items: center; gap: 14px; padding: 18px 34px; font: 500 .76rem var(--sans); letter-spacing: .24em; text-transform: uppercase; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color .5s var(--ease); }
-    .btn::before { content: ""; position: absolute; inset: 0; background: var(--ink); transform: translateY(101%); transition: transform .5s var(--ease); z-index: -1; }
-    .btn:hover { color: var(--ivory); }
+    .btn { display: inline-flex; align-items: center; gap: 14px; padding: 18px 32px; font: 600 .74rem var(--sans); letter-spacing: .22em; text-transform: uppercase; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color .5s var(--ease); }
+    .btn::before { content: ""; position: absolute; inset: 0; background: var(--navy); transform: translateY(101%); transition: transform .5s var(--ease); z-index: -1; }
+    .btn:hover { color: var(--white); }
     .btn:hover::before { transform: none; }
     .btn .arrow { width: 22px; height: 1px; background: currentColor; position: relative; transition: width .5s var(--ease); }
     .btn .arrow::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
     .btn:hover .arrow { width: 34px; }
-    .btn-dark { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
-    .btn-dark::before { background: var(--gold); }
-    .btn-light { color: var(--ivory); }
-    .btn-light::before { background: var(--ivory); }
-    .btn-light:hover { color: var(--ink); }
-    .nav .btn { padding: 13px 24px; }
+    .btn-solid { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .btn-solid::before { background: var(--blue); }
+    .btn-light { color: var(--white); }
+    .btn-light::before { background: var(--white); }
+    .btn-light:hover { color: var(--navy); }
+    .nav .btn { padding: 12px 22px; }
 
-    /* ---------- Portada ---------- */
-    .hero { min-height: 100vh; display: grid; align-items: end; padding: 160px 0 90px; position: relative; overflow: hidden; isolation: isolate; }
-    .hero::before {
-      content: ""; position: absolute; inset: 0; z-index: -1;
-      background:
-        radial-gradient(900px 600px at 85% 20%, rgba(212, 189, 138, .22), transparent 60%),
-        radial-gradient(700px 500px at 0% 100%, rgba(236, 231, 221, .9), transparent 60%),
-        var(--ivory);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: end; }
-    .hero h1 { font-size: clamp(3.4rem, 8.4vw, 8.2rem); margin: 28px 0 0; }
-    .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
-    .hero h1 .line span { display: block; transform: translateY(110%); animation: rise 1.4s var(--ease) forwards; }
-    .hero h1 .line:nth-child(2) span { animation-delay: .15s; }
-    .hero h1 .line:nth-child(3) span { animation-delay: .3s; }
-    .hero-side { padding-bottom: 14px; opacity: 0; animation: fade 1.4s .7s var(--ease) forwards; }
-    .hero-side p { color: var(--muted); font-size: 1.08rem; max-width: 36ch; margin-bottom: 40px; }
-    .hero-meta { margin-top: 90px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 30px; font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: 0; animation: fade 1.4s 1s var(--ease) forwards; }
-    .hero-meta span::before { content: ""; display: inline-block; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); margin-right: 14px; vertical-align: middle; }
+    /* ---------- 1. Hero: testo + foto verticale con riquadro sovrapposto ---------- */
+    .hero { min-height: 100vh; padding: 150px 0 100px; display: grid; align-items: center; background: linear-gradient(90deg, var(--white) 58%, var(--mist) 58%); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; }
+    .hero h1 { font-size: clamp(3.2rem, 7vw, 6.6rem); margin: 26px 0 30px; font-weight: 300; }
+    .hero h1 .line { display: block; overflow: hidden; padding-bottom: .05em; }
+    .hero h1 .line span { display: block; transform: translateY(110%); animation: rise 1.3s var(--ease) forwards; }
+    .hero h1 .line:nth-child(2) span { animation-delay: .12s; }
+    .hero h1 .line:nth-child(3) span { animation-delay: .24s; }
+    .hero p.lead { font-size: 1.08rem; max-width: 40ch; margin-bottom: 40px; opacity: 0; animation: fade 1.2s .6s forwards; }
+    .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: fade 1.2s .8s forwards; }
+    .hero-visual { position: relative; opacity: 0; animation: fade 1.6s .3s forwards; }
+    .hero-visual .photo { aspect-ratio: 4 / 5; }
+    .hero-card { position: absolute; left: -60px; bottom: 50px; z-index: 2; background: var(--navy); color: var(--white); padding: 28px 32px; max-width: 280px; box-shadow: 0 30px 60px rgba(13, 27, 54, .25); }
+    .hero-card .label { color: var(--sky); }
+    .hero-card p { font-family: var(--serif); font-size: 1.35rem; line-height: 1.25; margin-top: 10px; }
     @keyframes rise { to { transform: none; } }
     @keyframes fade { to { opacity: 1; } }
 
-    /* Brillo sutil que recorre la palabra destacada */
-    .sheen { background: linear-gradient(100deg, var(--gold) 0%, var(--gold) 40%, #f3e6c4 50%, var(--gold) 60%, var(--gold) 100%); background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sheen 6s 2s ease-in-out infinite; padding-right: .08em; }
-    @keyframes sheen { 0% { background-position: 100% 0; } 30%, 100% { background-position: -50% 0; } }
+    /* ---------- 2. Per chi lavoro: due pannelli affiancati ---------- */
+    .audience-head { text-align: center; max-width: 720px; margin: 0 auto 70px; }
+    .audience-head p { margin-top: 20px; }
+    .audience { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
+    .aud { padding: 60px 56px; position: relative; transition: background .6s var(--ease), color .6s var(--ease); }
+    .aud + .aud { border-left: 1px solid var(--line); }
+    .aud:hover { background: var(--navy); color: var(--white); }
+    .aud:hover .muted { color: var(--muted-dark); }
+    .aud:hover .aud-icon { color: var(--sky); border-color: var(--line-dark); }
+    .aud-icon { width: 64px; height: 64px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--blue); margin-bottom: 36px; transition: inherit; }
+    .aud-icon svg { width: 28px; height: 28px; }
+    .aud h3 { font-size: 2.2rem; margin-bottom: 16px; }
+    .aud ul { list-style: none; margin-top: 28px; display: grid; gap: 12px; }
+    .aud li { display: flex; gap: 14px; align-items: baseline; font-size: .95rem; }
+    .aud li::before { content: ""; flex: none; width: 14px; height: 1px; background: currentColor; transform: translateY(-4px); opacity: .6; }
 
-    /* ---------- Bloques ---------- */
-    section { padding: 150px 0; }
-    .intro { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
-    .intro p.big { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.25; font-weight: 300; }
-    .intro p.small { color: var(--muted); max-width: 52ch; margin-top: 36px; }
-
-    .dark { background: var(--char); color: var(--ivory); }
-    .dark .muted { color: var(--muted-dark); }
-    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 80px; }
-    .section-head h2 { font-size: clamp(2.6rem, 5.4vw, 4.8rem); margin-top: 22px; }
+    /* ---------- 3. Servizi: griglia a mosaico con foto ---------- */
+    .services-section { background: var(--mist); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 70px; }
     .section-head p { max-width: 38ch; }
+    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 18px; }
+    .tile { background: var(--white); padding: 34px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+    .tile .num { font-family: var(--serif); font-style: italic; color: var(--blue); font-size: 1.1rem; }
+    .tile h3 { font-size: 1.75rem; margin-bottom: 8px; }
+    .tile p { font-size: .92rem; color: var(--muted); }
+    .tile.photo-tile { padding: 0; }
+    .tile.photo-tile .photo { position: absolute; inset: 0; }
+    .tile.photo-tile .caption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 30px 34px; color: var(--white); background: linear-gradient(transparent, rgba(13, 27, 54, .85)); }
+    .tile.photo-tile .caption p { color: rgba(255, 255, 255, .8); }
+    .tile.navy { background: var(--navy); color: var(--white); }
+    .tile.navy p { color: var(--muted-dark); }
+    .tile.navy .num { color: var(--sky); }
+    .t-big { grid-column: span 2; grid-row: span 2; }
+    .t-wide { grid-column: span 2; }
 
-    .services { list-style: none; border-top: 1px solid var(--line-dark); }
-    .service { display: grid; grid-template-columns: 90px 1fr 1.1fr 40px; gap: 30px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--line-dark); position: relative; }
-    .service::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease); }
-    .service:hover::before { transform: scaleX(1); }
-    .service .num { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 1.1rem; }
-    .service h3 { font-size: clamp(1.7rem, 2.8vw, 2.5rem); transition: transform .7s var(--ease); }
-    .service:hover h3 { transform: translateX(14px); }
-    .service p { color: var(--muted-dark); font-size: .98rem; }
-    .service .plus { width: 18px; height: 18px; position: relative; justify-self: end; transition: transform .7s var(--ease); }
-    .service .plus::before, .service .plus::after { content: ""; position: absolute; background: var(--gold); }
-    .service .plus::before { left: 0; top: 50%; width: 100%; height: 1px; }
-    .service .plus::after { top: 0; left: 50%; height: 100%; width: 1px; }
-    .service:hover .plus { transform: rotate(90deg); }
+    /* ---------- 4. Metodo: linea temporale orizzontale su blu ---------- */
+    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; margin-top: 80px; }
+    .timeline::before { content: ""; position: absolute; top: 28px; left: 0; right: 0; height: 1px; background: var(--line-dark); }
+    .timeline .progress { position: absolute; top: 28px; left: 0; height: 1px; width: 100%; background: var(--sky); transform: scaleX(0); transform-origin: left; transition: transform 2.4s var(--ease); }
+    .timeline.in .progress { transform: scaleX(1); }
+    .t-step { padding-right: 34px; position: relative; }
+    .t-dot { width: 57px; height: 57px; border-radius: 50%; border: 1px solid var(--sky); background: var(--navy); display: grid; place-items: center; font-family: var(--serif); font-size: 1.4rem; color: var(--white); position: relative; z-index: 1; margin-bottom: 34px; }
+    .t-step h3 { font-size: 1.8rem; margin-bottom: 10px; }
+    .t-step p { color: var(--muted-dark); font-size: .95rem; }
 
-    .method { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-    .step { padding: 44px 34px 10px 0; position: relative; }
-    .step + .step { padding-left: 34px; border-left: 1px solid var(--line); }
-    .step .num { font-family: var(--serif); font-size: 4.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
-    .step h3 { font-size: 1.7rem; margin: 26px 0 12px; }
-    .step p { color: var(--muted); font-size: .95rem; }
+    /* ---------- 5. Chi sono: ritratto con cornice sfalsata ---------- */
+    .about { display: grid; grid-template-columns: .85fr 1.15fr; gap: 110px; align-items: center; }
+    .portrait { position: relative; }
+    .portrait::before { content: ""; position: absolute; inset: 34px -34px -34px 34px; border: 1px solid var(--blue); z-index: 0; }
+    .portrait .photo { aspect-ratio: 3 / 4; z-index: 1; }
+    .about blockquote { font-family: var(--serif); font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.3; margin: 34px 0 28px; }
+    .about p + p { margin-top: 16px; }
+    .signature { margin-top: 40px; display: flex; align-items: center; gap: 20px; }
+    .signature span { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--navy); }
+    .signature::before { content: ""; width: 60px; height: 1px; background: var(--blue); }
 
-    .quote { text-align: center; background: var(--stone); }
-    .quote .ornament { width: 60px; margin: 0 auto 44px; display: block; }
-    .quote blockquote { font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1.2; font-weight: 300; max-width: 22ch; margin: 0 auto; }
-    .quote cite { display: block; margin-top: 40px; font-style: normal; }
+    /* ---------- 6. Impegni: fascia di icone ---------- */
+    .commit-section { background: var(--ice); padding: 110px 0; }
+    .commits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .commit { padding: 10px 34px; text-align: center; }
+    .commit + .commit { border-left: 1px solid var(--line); }
+    .commit svg { width: 40px; height: 40px; color: var(--blue); margin: 0 auto 24px; }
+    .commit h3 { font-size: 1.55rem; margin-bottom: 10px; }
+    .commit p { color: var(--muted); font-size: .92rem; }
 
-    .standards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 80px; }
-    .standard { padding: 38px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 40px 1fr; gap: 20px; }
-    .standard .mark { width: 9px; height: 9px; border: 1px solid var(--gold); transform: rotate(45deg); margin-top: 14px; }
-    .standard h3 { font-size: 1.6rem; margin-bottom: 8px; }
-    .standard p { color: var(--muted); font-size: .95rem; }
+    /* ---------- 7. Domande frequenti: fisarmonica ---------- */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 90px; }
+    .faq details { border-top: 1px solid var(--line); }
+    .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary { list-style: none; cursor: pointer; padding: 28px 50px 28px 0; position: relative; font-family: var(--serif); font-size: 1.6rem; line-height: 1.2; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before, .faq summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 16px; height: 1px; background: var(--blue); transition: transform .5s var(--ease); }
+    .faq summary::after { transform: rotate(90deg); }
+    .faq details[open] summary::after { transform: rotate(0); }
+    .faq details p { padding: 0 50px 30px 0; color: var(--muted); }
 
-    /* ---------- Contacto ---------- */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 100px; }
-    .contact h2 { font-size: clamp(2.8rem, 5.6vw, 5rem); margin: 22px 0 30px; }
-    .contact-list { list-style: none; margin-top: 56px; display: grid; gap: 22px; }
-    .contact-list li { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line-dark); }
-    .contact-list .k { font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; color: var(--muted-dark); padding-top: 4px; }
-    form { display: grid; gap: 38px; }
+    /* ---------- 8. Contatti: pannello blu diviso ---------- */
+    .contact-section { padding-top: 0; }
+    .contact { display: grid; grid-template-columns: 1fr 1.15fr; background: var(--navy); color: var(--white); }
+    .contact-info { padding: 80px 70px; background: var(--navy-2); position: relative; overflow: hidden; }
+    .contact-info::after { content: ""; position: absolute; width: 420px; height: 420px; right: -180px; bottom: -180px; border: 1px solid var(--line-dark); border-radius: 50%; box-shadow: 0 0 0 60px rgba(255,255,255,.02), 0 0 0 120px rgba(255,255,255,.015); }
+    .contact-info h2 { font-size: clamp(2.4rem, 4.4vw, 3.8rem); margin-bottom: 24px; }
+    .contact-list { list-style: none; margin-top: 50px; display: grid; gap: 20px; position: relative; z-index: 1; }
+    .contact-list li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line-dark); }
+    .contact-list .k { font-size: .7rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--muted-dark); padding-top: 4px; }
+    form { padding: 80px 70px; display: grid; gap: 34px; align-content: center; }
     .field { position: relative; }
-    .field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line-dark); color: var(--ivory); padding: 26px 0 12px; font: 300 1.05rem var(--sans); border-radius: 0; appearance: none; resize: none; }
+    .field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line-dark); color: var(--white); padding: 26px 0 12px; font: 300 1.05rem var(--sans); border-radius: 0; appearance: none; resize: none; }
     .field select { cursor: pointer; }
     .field select option { color: var(--ink); }
-    .field label { position: absolute; left: 0; top: 0; font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--muted-dark); }
-    .field::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
+    .field label { position: absolute; left: 0; top: 0; font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--muted-dark); }
+    .field::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: var(--sky); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
     .field:focus-within::after { transform: scaleX(1); }
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; }
-    .field input::placeholder, .field textarea::placeholder { color: rgba(247, 244, 238, .3); }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
-    .field.select::before { content: ""; position: absolute; right: 4px; bottom: 20px; width: 7px; height: 7px; border-right: 1px solid var(--gold); border-bottom: 1px solid var(--gold); transform: rotate(45deg); pointer-events: none; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255, 255, 255, .3); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+    .field.select::before { content: ""; position: absolute; right: 4px; bottom: 20px; width: 7px; height: 7px; border-right: 1px solid var(--sky); border-bottom: 1px solid var(--sky); transform: rotate(45deg); pointer-events: none; }
 
-    footer { background: var(--char); color: var(--muted-dark); border-top: 1px solid var(--line-dark); padding: 40px 0; font-size: .76rem; letter-spacing: .18em; text-transform: uppercase; }
+    footer { padding: 40px 0; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
     footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    footer .brand-name { color: var(--ivory); font-size: 1.2rem; }
 
-    /* Aparición suave al hacer scroll */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.3s var(--ease), transform 1.3s var(--ease); }
+    /* ---------- Pulsante WhatsApp fisso ---------- */
+    .wa { position: fixed; right: 26px; bottom: 26px; z-index: 40; display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 999px; background: var(--navy); color: var(--white); box-shadow: 0 16px 40px rgba(13, 27, 54, .35); transition: transform .4s var(--ease), padding .4s var(--ease); }
+    .wa svg { width: 28px; height: 28px; flex: none; }
+    .wa .wa-text { max-width: 0; overflow: hidden; white-space: nowrap; font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; transition: max-width .5s var(--ease); }
+    .wa:hover { transform: translateY(-3px); padding-right: 22px; }
+    .wa:hover .wa-text { max-width: 220px; }
+    .wa::before { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1px solid var(--sky); animation: ring 3s ease-out infinite; }
+    @keyframes ring { 0% { transform: scale(1); opacity: .7; } 70%, 100% { transform: scale(1.35); opacity: 0; } }
+
+    /* Apparizione al passaggio */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
     .reveal.in { opacity: 1; transform: none; }
-    .reveal.d1 { transition-delay: .12s; } .reveal.d2 { transition-delay: .24s; } .reveal.d3 { transition-delay: .36s; }
+    .d1 { transition-delay: .12s; } .d2 { transition-delay: .24s; } .d3 { transition-delay: .36s; }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1000px) {
       .nav ul { display: none; }
-      .hero-grid, .intro, .contact-grid, .standards { grid-template-columns: 1fr; gap: 40px; }
-      .hero-meta { flex-direction: column; gap: 14px; margin-top: 60px; }
+      .hero { background: var(--white); }
+      .hero-grid, .about, .faq-grid, .contact { grid-template-columns: 1fr; gap: 60px; }
+      .hero-card { left: 20px; bottom: 20px; }
+      .audience { grid-template-columns: 1fr; }
+      .aud + .aud { border-left: 0; border-top: 1px solid var(--line); }
       .section-head { flex-direction: column; align-items: start; }
-      .service { grid-template-columns: 50px 1fr 24px; gap: 16px; }
-      .service p { grid-column: 2 / 3; grid-row: 2; }
-      .service .plus { grid-column: 3; grid-row: 1; }
-      .method { grid-template-columns: 1fr 1fr; }
-      .step:nth-child(3) { border-left: 0; padding-left: 0; }
-      .step:nth-child(n+3) { border-top: 1px solid var(--line); }
-      .contact-grid { gap: 70px; }
+      .bento { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; }
+      .timeline { grid-template-columns: 1fr 1fr; gap: 50px 0; }
+      .timeline::before, .timeline .progress { display: none; }
+      .commits { grid-template-columns: 1fr 1fr; gap: 50px 0; }
+      .commit:nth-child(3) { border-left: 0; }
+      .about { gap: 90px; }
+      .portrait { max-width: 440px; }
       section { padding: 100px 0; }
+      .contact-info, form { padding: 60px 40px; }
     }
-    @media (max-width: 560px) {
+    @media (max-width: 600px) {
       .wrap { width: calc(100% - 32px); }
       .nav .btn { display: none; }
-      .brand-name { letter-spacing: .3em; }
-      .method { grid-template-columns: 1fr; }
-      .step + .step { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .aud { padding: 44px 28px; }
+      .bento { grid-template-columns: 1fr; }
+      .t-big, .t-wide { grid-column: span 1; }
+      .t-big { grid-row: span 1; height: 340px; }
+      .timeline, .commits { grid-template-columns: 1fr; }
+      .commit + .commit { border-left: 0; }
+      .portrait::before { inset: 20px -16px -20px 20px; }
       .field-row { grid-template-columns: 1fr; }
-      .contact-list li { grid-template-columns: 1fr; gap: 4px; }
-      footer .wrap { flex-direction: column; text-align: center; }
+      .contact-info, form { padding: 50px 24px; }
+      .contact-list li { grid-template-columns: 1fr; gap: 2px; }
+      footer .wrap { flex-direction: column; text-align: center; padding-bottom: 60px; }
+      .wa { right: 16px; bottom: 16px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .hero h1 .line span { transform: none; }
-      .hero-side, .hero-meta, .reveal { opacity: 1; transform: none; }
+      .hero p.lead, .hero .ctas, .hero-visual, .reveal { opacity: 1; transform: none; }
+      .timeline .progress { transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Monograma: sombrero de mago y varita en trazo fino dorado -->
+  <!-- Monogramma: cappello da mago e bacchetta, tratto sottile -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="logo" viewBox="0 0 64 64">
-      <g fill="none" stroke="#b89b5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 46 L31 10 Q34 6 36 12 L44 46" />
         <path d="M10 46 Q32 54 54 46" />
         <path d="M19.5 41 H42.5" />
         <path d="M40 30 L57 17" />
-        <path d="M57 8 V12 M57 22 V26 M48 17 H52 M62 17 H64" stroke-width="1.2" />
+        <path d="M57 8 V12 M57 22 V26 M48 17 H52 M62 17 H64" stroke-width="1.3" />
       </g>
+    </symbol>
+    <symbol id="wa-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z" />
     </symbol>
   </svg>
 
   <nav class="nav" id="nav">
     <div class="wrap">
-      <a class="brand" href="#inicio" aria-label="Merlin, inicio">
+      <a class="brand" href="#inizio" aria-label="Merlin, inizio">
         <svg><use href="#logo" /></svg>
         <span class="brand-name">MERLIN</span>
       </a>
       <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#metodo">Método</a></li>
-        <li><a href="#estandares">Estándares</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#clienti">Per chi</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#metodo">Metodo</a></li>
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="#contatti">Contatti</a></li>
       </ul>
-      <a class="btn" href="#contacto">Solicitar visita</a>
+      <a class="btn" href="#contatti">Richiedi un sopralluogo</a>
     </div>
   </nav>
 
-  <!-- ================= PORTADA ================= -->
-  <header class="hero" id="inicio">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <span class="label">Limpieza de oficinas · Milán</span>
-          <h1>
-            <span class="line"><span>El arte de</span></span>
-            <span class="line"><span>una oficina</span></span>
-            <span class="line"><span><em class="sheen">impecable.</em></span></span>
-          </h1>
-        </div>
-        <div class="hero-side">
-          <p>Un servicio de limpieza pensado para empresas que cuidan cada detalle. Discreto, preciso y siempre a la altura de su imagen.</p>
-          <a class="btn btn-dark" href="#contacto">Solicitar una visita <span class="arrow"></span></a>
+  <!-- ================= 1. HERO ================= -->
+  <header class="hero" id="inizio">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="label">Pulizia uffici · Milano</span>
+        <h1>
+          <span class="line"><span>L'ufficio</span></span>
+          <span class="line"><span>che rispecchia</span></span>
+          <span class="line"><span><em>la sua immagine.</em></span></span>
+        </h1>
+        <p class="lead muted">Pulizia professionale per PMI e studi professionali che curano ogni dettaglio. Un servizio discreto, preciso e su misura, con un unico referente.</p>
+        <div class="ctas">
+          <a class="btn btn-solid" href="#contatti">Richiedi un sopralluogo <span class="arrow"></span></a>
+          <a class="btn" href="#servizi">Scopri i servizi</a>
         </div>
       </div>
-      <div class="hero-meta">
-        <span>Exclusivo para oficinas</span>
-        <span>Horario a su medida</span>
-        <span>Trato personal y directo</span>
+      <div class="hero-visual">
+        <div class="photo" data-label="Foto hero&#10;img/hero.jpg&#10;formato verticale 4:5">
+          <img src="img/hero.jpg" alt="Ufficio pulito e luminoso a Milano" onerror="this.remove()" />
+        </div>
+        <div class="hero-card">
+          <span class="label">Solo uffici</span>
+          <p>Un'unica specializzazione, la massima attenzione.</p>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ================= FILOSOFÍA ================= -->
+  <!-- ================= 2. PER CHI LAVORO ================= -->
+  <section id="clienti">
+    <div class="wrap">
+      <div class="audience-head reveal">
+        <span class="label">Per chi lavoro</span>
+        <h2>Due realtà,<br /><em>la stessa cura.</em></h2>
+        <p class="muted">Ogni ufficio ha un ritmo diverso. Il servizio si adatta al suo, non il contrario.</p>
+      </div>
+      <div class="audience">
+        <div class="aud reveal">
+          <div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="7" width="18" height="14" /><path d="M8 7V3h8v4M3 13h18" /></svg></div>
+          <h3>PMI</h3>
+          <p class="muted">Uffici operativi con team in movimento, sale riunioni e aree comuni sempre in uso.</p>
+          <ul>
+            <li>Frequenza giornaliera o settimanale</li>
+            <li>Interventi fuori dall'orario di lavoro</li>
+            <li>Aree comuni, cucine e servizi sempre in ordine</li>
+          </ul>
+        </div>
+        <div class="aud reveal d1">
+          <div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21h16M5 21V10l7-6 7 6v11" /><path d="M9 21v-6h6v6M9 11h6" /></svg></div>
+          <h3>Studi professionali</h3>
+          <p class="muted">Studi legali, notarili, di consulenza e architettura, dove l'accoglienza del cliente è parte del servizio.</p>
+          <ul>
+            <li>Massima riservatezza su documenti e archivi</li>
+            <li>Reception e sale clienti sempre impeccabili</li>
+            <li>Cura dei materiali pregiati e degli arredi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. SERVIZI ================= -->
+  <section class="services-section" id="servizi">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <span class="label">Servizi</span>
+          <h2>Ogni ambiente,<br /><em>con metodo.</em></h2>
+        </div>
+        <p class="muted reveal d1">Un servizio completo che copre tutti gli spazi del suo ufficio, con la stessa attenzione a ogni visita.</p>
+      </div>
+      <div class="bento">
+        <div class="tile photo-tile t-big reveal">
+          <div class="photo" data-label="Foto servizi 1&#10;img/servizio-1.jpg&#10;postazioni di lavoro">
+            <img src="img/servizio-1.jpg" alt="Postazioni di lavoro pulite" onerror="this.remove()" />
+          </div>
+          <div class="caption"><h3>Postazioni di lavoro</h3><p>Scrivanie, schermi, tastiere e telefoni igienizzati senza spostare i suoi documenti.</p></div>
+        </div>
+        <div class="tile reveal d1"><span class="num">02</span><div><h3>Reception e sale riunioni</h3><p>La prima impressione per i suoi clienti.</p></div></div>
+        <div class="tile navy reveal d2"><span class="num">03</span><div><h3>Pavimenti</h3><p>Trattamento specifico per legno, marmo, vinile e moquette.</p></div></div>
+        <div class="tile photo-tile reveal d1">
+          <div class="photo" data-label="Foto servizi 2&#10;img/servizio-2.jpg">
+            <img src="img/servizio-2.jpg" alt="Servizi igienici puliti" onerror="this.remove()" />
+          </div>
+          <div class="caption"><h3>Bagni e cucine</h3></div>
+        </div>
+        <div class="tile reveal d2"><span class="num">05</span><div><h3>Vetri e vetrate</h3><p>Finestre, pareti e porte in vetro senza aloni.</p></div></div>
+        <div class="tile photo-tile t-wide reveal">
+          <div class="photo" data-label="Foto servizi 3&#10;img/servizio-3.jpg&#10;formato orizzontale">
+            <img src="img/servizio-3.jpg" alt="Ufficio dopo una pulizia di fondo" onerror="this.remove()" />
+          </div>
+          <div class="caption"><h3>Pulizie di fondo</h3><p>Dopo lavori, traslochi o eventi: l'ufficio pronto da usare.</p></div>
+        </div>
+        <div class="tile navy t-wide reveal d1"><span class="num">07</span><div><h3>Servizio su misura</h3><p>Ha un'esigenza particolare? La valutiamo insieme durante il sopralluogo.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. METODO ================= -->
+  <section class="dark" id="metodo">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Il metodo</span>
+        <h2>Semplice per lei.<br /><em>Rigoroso per me.</em></h2>
+      </div>
+      <div class="timeline reveal" id="timeline">
+        <span class="progress"></span>
+        <div class="t-step"><div class="t-dot">I</div><h3>Contatto</h3><p>Mi racconta com'è il suo ufficio, i suoi orari e cosa si aspetta dal servizio.</p></div>
+        <div class="t-step"><div class="t-dot">II</div><h3>Sopralluogo</h3><p>Visito gli spazi di persona per conoscere ambienti, materiali ed esigenze.</p></div>
+        <div class="t-step"><div class="t-dot">III</div><h3>Proposta</h3><p>Riceve un piano su misura con un preventivo chiaro e trasparente.</p></div>
+        <div class="t-step"><div class="t-dot">IV</div><h3>Servizio</h3><p>Pulizia negli orari concordati, con la stessa cura a ogni intervento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. CHI SONO ================= -->
+  <section id="chi-sono">
+    <div class="wrap about">
+      <div class="portrait reveal">
+        <div class="photo" data-label="La sua foto&#10;img/merlin.jpg&#10;ritratto verticale 3:4">
+          <img src="img/merlin.jpg" alt="Merlin, fondatore" onerror="this.remove()" />
+        </div>
+      </div>
+      <div>
+        <span class="label reveal">Chi sono</span>
+        <blockquote class="reveal d1">«Credo che un ufficio curato parli di chi ci lavora prima ancora di una parola.»</blockquote>
+        <p class="muted reveal d2">Mi chiamo Merlin e mi occupo esclusivamente di pulizia di uffici a Milano. Ho scelto una sola specializzazione per poterla fare al meglio.</p>
+        <p class="muted reveal d2">Quando lavora con me, ha sempre lo stesso referente: conosco il suo spazio, le sue abitudini e le sue priorità. Lavoro in silenzio, fuori dal suo orario, perché il giorno dopo trovi soltanto il risultato.</p>
+        <div class="signature reveal d3"><span>Merlin</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. IMPEGNI ================= -->
+  <section class="commit-section">
+    <div class="wrap commits">
+      <div class="commit reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="10" width="14" height="11" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
+        <h3>Riservatezza</h3><p>Rispetto totale per documenti, archivi e attrezzature.</p>
+      </div>
+      <div class="commit reveal d1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+        <h3>Orari flessibili</h3><p>Prima dell'apertura, dopo la chiusura o nel weekend.</p>
+      </div>
+      <div class="commit reveal d2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4" /><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" /></svg>
+        <h3>Un solo referente</h3><p>Nessun intermediario: parla sempre direttamente con me.</p>
+      </div>
+      <div class="commit reveal d3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z" /></svg>
+        <h3>Cura dei materiali</h3><p>Prodotti professionali scelti per ogni superficie.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. FAQ ================= -->
   <section>
-    <div class="wrap intro">
-      <span class="label reveal">La filosofía</span>
-      <div>
-        <p class="big reveal d1">Un espacio de trabajo impecable no se nota: <em>se siente</em>. En la primera impresión de un cliente, en la concentración de un equipo, en la calma de empezar cada día en orden.</p>
-        <p class="small reveal d2">Merlin nace con una sola especialidad: la limpieza de oficinas. Trabajo en silencio, fuera de su horario, para que al día siguiente solo encuentre lo esencial — un lugar perfecto donde trabajar.</p>
+    <div class="wrap faq-grid">
+      <div class="reveal">
+        <span class="label">Domande frequenti</span>
+        <h2>Prima di<br /><em>iniziare.</em></h2>
+      </div>
+      <div class="faq reveal d1">
+        <details open><summary>Come si richiede un preventivo?</summary><p>Compili il modulo qui sotto o mi scriva su WhatsApp. Fissiamo un sopralluogo e, dopo aver visto gli spazi, le invio una proposta su misura.</p></details>
+        <details><summary>In quali orari lavora?</summary><p>Gli orari si concordano insieme: prima dell'apertura, dopo la chiusura o nel fine settimana, per non interferire con il lavoro del suo team.</p></details>
+        <details><summary>Con quale frequenza posso richiedere il servizio?</summary><p>Giornaliera, più volte a settimana, settimanale o per interventi singoli, come una pulizia di fondo dopo lavori o traslochi.</p></details>
+        <details><summary>In quali zone opera?</summary><p>Milano e dintorni. Se il suo ufficio si trova fuori città, mi contatti e verifichiamo insieme la disponibilità.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- ================= SERVICIOS ================= -->
-  <section class="dark" id="servicios">
+  <!-- ================= 8. CONTATTI ================= -->
+  <section class="contact-section" id="contatti">
     <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="label">Servicios</span>
-          <h2>Cada rincón,<br /><em>con intención.</em></h2>
+      <div class="contact reveal">
+        <div class="contact-info">
+          <span class="label">Contatti</span>
+          <h2>Parliamo del<br /><em>suo ufficio.</em></h2>
+          <p class="muted">Mi racconti i suoi spazi e le proporrò un sopralluogo senza impegno.</p>
+          <ul class="contact-list">
+            <li><span class="k">Zona</span><span>Milano e dintorni</span></li>
+            <li><span class="k">Orari</span><span>Da concordare insieme</span></li>
+            <li><span class="k">WhatsApp</span><span id="waDisplay">—</span></li>
+          </ul>
         </div>
-        <p class="muted reveal d1">Un servicio integral que se adapta a la forma de trabajar de su empresa, con la misma exigencia en cada visita.</p>
-      </div>
-      <ul class="services">
-        <li class="service reveal"><span class="num">01</span><h3>Puestos de trabajo</h3><p>Escritorios, pantallas, teclados y teléfonos tratados con cuidado, sin alterar el orden de sus documentos.</p><span class="plus"></span></li>
-        <li class="service reveal"><span class="num">02</span><h3>Recepción y zonas comunes</h3><p>La primera impresión de su empresa, siempre impecable: entrada, salas de reunión y pasillos.</p><span class="plus"></span></li>
-        <li class="service reveal"><span class="num">03</span><h3>Suelos y superficies</h3><p>Tratamiento específico para madera, mármol, vinilo o moqueta, respetando cada material.</p><span class="plus"></span></li>
-        <li class="service reveal"><span class="num">04</span><h3>Aseos y office</h3><p>Higiene completa, reposición de consumibles y cocinas listas para el día siguiente.</p><span class="plus"></span></li>
-        <li class="service reveal"><span class="num">05</span><h3>Cristales y vidrio</h3><p>Ventanas, mamparas y puertas de cristal sin una sola marca.</p><span class="plus"></span></li>
-        <li class="service reveal"><span class="num">06</span><h3>Limpiezas a fondo</h3><p>Tras reformas, mudanzas o eventos: su oficina, lista para estrenar.</p><span class="plus"></span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= MÉTODO ================= -->
-  <section id="metodo">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="label">El método</span>
-          <h2>Simple para usted.<br /><em>Riguroso para mí.</em></h2>
-        </div>
-      </div>
-      <div class="method">
-        <div class="step reveal"><div class="num">I</div><h3>Conversación</h3><p>Me cuenta cómo es su oficina, su ritmo de trabajo y lo que espera del servicio.</p></div>
-        <div class="step reveal d1"><div class="num">II</div><h3>Visita</h3><p>Conozco el espacio en persona para entender cada material y cada necesidad.</p></div>
-        <div class="step reveal d2"><div class="num">III</div><h3>Propuesta</h3><p>Recibe un plan a medida con un presupuesto claro y sin letra pequeña.</p></div>
-        <div class="step reveal d3"><div class="num">IV</div><h3>Servicio</h3><p>Limpieza en el horario acordado, con la misma atención en cada visita.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CITA ================= -->
-  <section class="quote">
-    <div class="wrap">
-      <svg class="ornament reveal" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo" /></svg>
-      <blockquote class="reveal d1">“La verdadera elegancia está en los detalles que nadie ve, pero todos perciben.”</blockquote>
-      <cite class="label reveal d2">Merlin</cite>
-    </div>
-  </section>
-
-  <!-- ================= ESTÁNDARES ================= -->
-  <section id="estandares">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="label">Estándares</span>
-          <h2>Lo que puede<br /><em>esperar siempre.</em></h2>
-        </div>
-      </div>
-      <div class="standards">
-        <div class="standard reveal"><span class="mark"></span><div><h3>Discreción absoluta</h3><p>Respeto total por su espacio, sus equipos y la confidencialidad de sus documentos.</p></div></div>
-        <div class="standard reveal d1"><span class="mark"></span><div><h3>Horario a su medida</h3><p>Antes de abrir, al cerrar o en fin de semana. Su equipo no notará mi presencia, solo el resultado.</p></div></div>
-        <div class="standard reveal"><span class="mark"></span><div><h3>Trato directo</h3><p>Sin intermediarios ni centralitas: un único interlocutor que conoce su oficina.</p></div></div>
-        <div class="standard reveal d1"><span class="mark"></span><div><h3>Productos selectos</h3><p>Productos profesionales, eficaces y respetuosos con las personas y los materiales nobles.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACTO ================= -->
-  <section class="dark contact" id="contacto">
-    <div class="wrap contact-grid">
-      <div>
-        <span class="label reveal">Contacto</span>
-        <h2 class="reveal d1">Hablemos de<br /><em>su espacio.</em></h2>
-        <p class="muted reveal d2">Cuénteme sobre su oficina y le propondré una visita sin compromiso.</p>
-        <ul class="contact-list reveal d3">
-          <li><span class="k">Zona</span><span>Milán y alrededores</span></li>
-          <li><span class="k">Horario</span><span>Lunes a sábado, a convenir</span></li>
-          <li><span class="k">Contacto</span><span>WhatsApp, respuesta personal</span></li>
-        </ul>
-      </div>
-      <form id="quoteForm" class="reveal d1">
-        <div class="field-row">
-          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" required placeholder="Su nombre" /></div>
-          <div class="field"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa" placeholder="Nombre de la empresa" /></div>
-        </div>
-        <div class="field-row">
-          <div class="field select"><label for="f-tamano">Superficie</label>
-            <select id="f-tamano" name="tamano"><option>Menos de 100 m²</option><option>100 – 300 m²</option><option>300 – 600 m²</option><option>Más de 600 m²</option></select>
+        <form id="quoteForm">
+          <div class="field-row">
+            <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" required placeholder="Il suo nome" /></div>
+            <div class="field"><label for="f-azienda">Azienda / Studio</label><input id="f-azienda" name="azienda" placeholder="Nome dell'azienda" /></div>
           </div>
-          <div class="field select"><label for="f-frecuencia">Frecuencia</label>
-            <select id="f-frecuencia" name="frecuencia"><option>Diaria</option><option>2–3 veces por semana</option><option>Semanal</option><option>Servicio puntual</option></select>
+          <div class="field-row">
+            <div class="field select"><label for="f-tipo">Tipo di ufficio</label>
+              <select id="f-tipo" name="tipo"><option>PMI</option><option>Studio professionale</option><option>Altro</option></select>
+            </div>
+            <div class="field select"><label for="f-superficie">Superficie</label>
+              <select id="f-superficie" name="superficie"><option>Meno di 100 m²</option><option>100 – 300 m²</option><option>300 – 600 m²</option><option>Oltre 600 m²</option></select>
+            </div>
           </div>
-        </div>
-        <div class="field"><label for="f-mensaje">Mensaje</label><textarea id="f-mensaje" name="mensaje" rows="3" placeholder="Cuénteme lo que considere importante"></textarea></div>
-        <div><button class="btn btn-light" type="submit">Enviar solicitud <span class="arrow"></span></button></div>
-      </form>
+          <div class="field select"><label for="f-frequenza">Frequenza</label>
+            <select id="f-frequenza" name="frequenza"><option>Giornaliera</option><option>2–3 volte a settimana</option><option>Settimanale</option><option>Intervento singolo</option></select>
+          </div>
+          <div class="field"><label for="f-messaggio">Messaggio</label><textarea id="f-messaggio" name="messaggio" rows="3" placeholder="Qualcosa che dovrei sapere?"></textarea></div>
+          <div><button class="btn btn-light" type="submit">Invia su WhatsApp <span class="arrow"></span></button></div>
+        </form>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <span class="brand-name">MERLIN</span>
-      <span>Limpieza de oficinas · Milán</span>
+      <a class="brand" href="#inizio"><svg><use href="#logo" /></svg><span class="brand-name">MERLIN</span></a>
+      <span>Pulizia uffici · Milano</span>
       <span>© <span id="year"></span></span>
     </div>
   </footer>
 
-  <script>
-    // Cambie este número por el suyo (formato internacional, sin + ni espacios)
-    const WHATSAPP_NUMBER = "390000000000";
+  <!-- Pulsante WhatsApp fisso -->
+  <a class="wa" id="waButton" href="#" target="_blank" rel="noopener" aria-label="Scrivimi su WhatsApp">
+    <svg><use href="#wa-icon" /></svg><span class="wa-text">Scrivimi su WhatsApp</span>
+  </a>
 
+  <script>
+    // ⚠️ Inserisca qui il suo numero WhatsApp (prefisso internazionale, senza + né spazi). Es.: "393401234567"
+    const WHATSAPP_NUMBER = "39XXXXXXXXXX";
+
+    const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    document.getElementById("waButton").href = waLink("Buongiorno Merlin, vorrei informazioni sul servizio di pulizia uffici.");
+    document.getElementById("waDisplay").textContent = "+" + WHATSAPP_NUMBER.replace(/^(\d{2})(\d{3})(\d+)$/, "$1 $2 $3");
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const nav = document.getElementById("nav");
@@ -381,11 +537,11 @@
     document.getElementById("quoteForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const f = new FormData(e.target);
-      const text = `Buenos días, Merlin. Me gustaría solicitar una visita.\n\n` +
-        `Nombre: ${f.get("nombre")}\nEmpresa: ${f.get("empresa") || "-"}\n` +
-        `Superficie: ${f.get("tamano")}\nFrecuencia: ${f.get("frecuencia")}\n` +
-        `Mensaje: ${f.get("mensaje") || "-"}`;
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      const text = `Buongiorno Merlin, vorrei richiedere un sopralluogo.\n\n` +
+        `Nome: ${f.get("nome")}\nAzienda: ${f.get("azienda") || "-"}\n` +
+        `Tipo: ${f.get("tipo")}\nSuperficie: ${f.get("superficie")}\nFrequenza: ${f.get("frequenza")}\n` +
+        `Messaggio: ${f.get("messaggio") || "-"}`;
+      window.open(waLink(text), "_blank", "noopener");
     });
   </script>
 </body>
