@@ -125,7 +125,8 @@
     /* ---------- 2. Servizi: tre schede con foto ---------- */
     .head-center { text-align: center; max-width: 680px; margin: 0 auto 70px; }
     .head-center .label::after { content: ""; width: 22px; height: 1px; background: var(--gold); }
-    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .service { min-width: 0; }
     .service { background: var(--white); border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
     .service:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(30, 58, 110, .12); }
     .service .photo { aspect-ratio: 4 / 3; }
@@ -239,7 +240,6 @@
       .about, .zone { grid-template-columns: 1fr; gap: 60px; }
       .hero::before { background: linear-gradient(0deg, rgba(21, 42, 82, .95) 0%, rgba(21, 42, 82, .82) 55%, rgba(21, 42, 82, .6) 100%); }
       .hero-badge { position: static; margin-top: 44px; display: inline-flex; }
-      .services { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
       .why-item { padding: 44px 34px; }
       .why-seal { display: none; }
       .steps { grid-template-columns: 1fr 1fr; gap: 50px 24px; }
@@ -348,7 +348,7 @@
       <div class="services">
         <article class="service reveal">
           <!-- Foto reale: img/servizi-reception.webp -->
-          <div class="photo"><img src="img/servizi-reception.webp" alt="Area reception con bancone bianco e piante, pulita e in ordine" loading="lazy" onerror="this.remove()" /></div>
+          <div class="photo"><img src="img/servizi-reception.webp" style="object-position: 15% 50%" alt="Area d'ingresso con mobili bianchi e composizioni di fiori, pulita e in ordine" loading="lazy" onerror="this.remove()" /></div>
           <div class="service-body">
             <span class="service-num" aria-hidden="true">1</span>
             <h3>Pulizia ordinaria</h3>
@@ -357,7 +357,7 @@
         </article>
         <article class="service reveal d1">
           <!-- Foto reale: img/servizi-salottino.webp -->
-          <div class="photo"><img src="img/servizi-salottino.webp" alt="Bancone bianco di un ufficio davanti a grandi vetrate" loading="lazy" onerror="this.remove()" /></div>
+          <div class="photo"><img src="img/servizi-salottino.webp" alt="Salottino d'attesa con poltrone rosse davanti ad ampie vetrate" loading="lazy" onerror="this.remove()" /></div>
           <div class="service-body">
             <span class="service-num" aria-hidden="true">2</span>
             <h3>Pulizia a fondo</h3>
@@ -366,7 +366,7 @@
         </article>
         <article class="service reveal d2">
           <!-- Foto reale: img/servizi-vetrate.webp -->
-          <div class="photo"><img src="img/servizi-vetrate.webp" alt="Sala d'attesa con poltrone rosse e ampie vetrate pulite" loading="lazy" onerror="this.remove()" /></div>
+          <div class="photo"><img src="img/servizi-vetrate.webp" alt="Angolo d'attesa con poltrona gialla accanto a pareti vetrate pulite" loading="lazy" onerror="this.remove()" /></div>
           <div class="service-body">
             <span class="service-num" aria-hidden="true">3</span>
             <h3>Vetri interni</h3>
