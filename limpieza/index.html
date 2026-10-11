@@ -3,274 +3,276 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Merlin Pulizia Uffici Milano</title>
-  <meta name="description" content="Merlin — pulizia di uffici a Milano per PMI e studi professionali. Discrezione, precisione e un unico referente." />
+  <title>Merlin Pulizie Uffici Milano</title>
+  <meta name="description" content="Merlin — pulizie professionali per uffici e studi a Milano, 7 giorni su 7. Lavoriamo quando non ci siete." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1b36'/%3E%3Cpath d='M22 46 L33 12 L42 46 M16 46 H48' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231e3a6e'/%3E%3Cpath d='M22 46 L33 12 L42 46 M16 46 H48' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
   <style>
     :root {
       --white: #ffffff;
-      --mist: #f3f6fb;
-      --ice: #e4ebf5;
-      --navy: #0d1b36;
-      --navy-2: #13264a;
-      --blue: #2f4f86;
-      --sky: #8fa9d4;
-      --ink: #0d1b36;
-      --muted: #5b6780;
-      --muted-dark: #a5b2c9;
-      --line: rgba(13, 27, 54, .12);
-      --line-dark: rgba(255, 255, 255, .14);
+      --blue: #1e3a6e;          /* colore principale */
+      --blue-deep: #152a52;
+      --blue-mid: #3d5f9e;
+      --blue-light: #eef3fa;    /* fondi alternati */
+      --blue-soft: #dbe5f3;
+      --gold: #c4a45f;          /* solo dettagli minimi */
+      --ink: #14213d;
+      --muted: #5a6680;
+      --on-dark: #b9c8e2;
+      --line: rgba(30, 58, 110, .14);
+      --line-dark: rgba(255, 255, 255, .16);
+      --photo: #d9dde3;
       --serif: "Cormorant Garamond", Georgia, serif;
       --sans: "Manrope", system-ui, sans-serif;
       --ease: cubic-bezier(.2, .7, .1, 1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); font-weight: 300; color: var(--ink); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { font-family: var(--sans); font-weight: 400; color: var(--ink); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 3px; }
+    .skip { position: absolute; left: -999px; top: 10px; z-index: 100; background: var(--blue); color: #fff; padding: 10px 16px; }
+    .skip:focus { left: 10px; }
     .wrap { width: min(1200px, 100% - 48px); margin-inline: auto; }
-    .label { font-size: .72rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--blue); }
-    .dark .label { color: var(--sky); }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.05; letter-spacing: -.01em; }
-    h2 { font-size: clamp(2.5rem, 5vw, 4.4rem); margin-top: 18px; }
-    em { font-style: italic; color: var(--blue); }
-    .dark em { color: var(--sky); }
+    .label { display: inline-flex; align-items: center; gap: 12px; font-size: .72rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--blue-mid); }
+    .label::before { content: ""; width: 22px; height: 1px; background: var(--gold); }
+    .dark .label { color: var(--on-dark); }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.08; letter-spacing: -.005em; color: var(--blue); }
+    .dark h1, .dark h2, .dark h3 { color: var(--white); }
+    h2 { font-size: clamp(2.4rem, 4.6vw, 4rem); margin-top: 18px; }
+    em { font-style: italic; color: var(--blue-mid); }
+    .dark em { color: var(--on-dark); }
     .muted { color: var(--muted); }
-    .dark .muted { color: var(--muted-dark); }
-    section { padding: 140px 0; }
-    .dark { background: var(--navy); color: var(--white); }
+    .dark .muted { color: var(--on-dark); }
+    section { padding: 130px 0; }
+    .alt { background: var(--blue-light); }
+    .dark { background: var(--blue); color: var(--white); }
 
     /* ---------- Segnaposto per foto reali ----------
-       Basta salvare la foto con il nome indicato nella cartella img/:
-       se il file esiste, copre il segnaposto automaticamente. */
-    .photo { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--ice), var(--mist)); }
-    .photo::before {
-      content: ""; position: absolute; inset: 14px; border: 1px dashed rgba(47, 79, 134, .35);
-    }
-    .photo::after {
-      content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 30px;
-      font-size: .7rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--blue); opacity: .75; white-space: pre-line;
-    }
+       Salvare la foto in img/ con il nome indicato: se il file esiste copre il segnaposto. */
+    .photo { position: relative; overflow: hidden; background: var(--photo); }
+    .photo::after { content: "Foto"; position: absolute; inset: 0; display: grid; place-items: center; font-size: .8rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: #7d8592; }
     .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 1.6s var(--ease); }
     .photo:hover img { transform: scale(1.04); }
 
     /* ---------- Navigazione ---------- */
-    .nav { position: fixed; inset: 0 0 auto; z-index: 30; transition: background .5s var(--ease), border-color .5s; border-bottom: 1px solid transparent; }
-    .nav.scrolled { background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); border-color: var(--line); }
-    .nav .wrap { height: 86px; display: flex; align-items: center; justify-content: space-between; transition: height .5s var(--ease); }
+    .nav { position: fixed; inset: 0 0 auto; z-index: 30; transition: background .5s var(--ease), border-color .5s, box-shadow .5s; border-bottom: 1px solid transparent; }
+    .nav.scrolled { background: rgba(255, 255, 255, .96); backdrop-filter: blur(14px); border-color: var(--line); }
+    .nav .wrap { height: 84px; display: flex; align-items: center; justify-content: space-between; transition: height .5s var(--ease); }
     .nav.scrolled .wrap { height: 68px; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand svg { width: 32px; height: 32px; color: var(--navy); }
-    .brand-name { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; letter-spacing: .36em; }
-    .nav ul { display: flex; gap: 38px; list-style: none; }
-    .nav ul a { font-size: .76rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; position: relative; padding-bottom: 4px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--blue); }
+    .brand svg { width: 32px; height: 32px; }
+    .brand-name { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: .34em; }
+    .nav ul { display: flex; gap: 34px; list-style: none; }
+    .nav ul a { font-size: .76rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; position: relative; padding-bottom: 4px; }
     .nav ul a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: var(--blue); transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
     .nav ul a:hover::after { transform: scaleX(1); transform-origin: left; }
 
-    .btn { display: inline-flex; align-items: center; gap: 14px; padding: 18px 32px; font: 600 .74rem var(--sans); letter-spacing: .22em; text-transform: uppercase; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color .5s var(--ease); }
-    .btn::before { content: ""; position: absolute; inset: 0; background: var(--navy); transform: translateY(101%); transition: transform .5s var(--ease); z-index: -1; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 17px 30px; font: 600 .74rem var(--sans); letter-spacing: .18em; text-transform: uppercase; border: 1px solid var(--blue); background: transparent; color: var(--blue); cursor: pointer; position: relative; overflow: hidden; isolation: isolate; border-radius: 2px; transition: color .5s var(--ease); }
+    .btn::before { content: ""; position: absolute; inset: 0; background: var(--blue); transform: translateY(101%); transition: transform .5s var(--ease); z-index: -1; }
     .btn:hover { color: var(--white); }
     .btn:hover::before { transform: none; }
-    .btn .arrow { width: 22px; height: 1px; background: currentColor; position: relative; transition: width .5s var(--ease); }
+    .btn svg { width: 18px; height: 18px; }
+    .btn .arrow { width: 20px; height: 1px; background: currentColor; position: relative; transition: width .5s var(--ease); }
     .btn .arrow::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
-    .btn:hover .arrow { width: 34px; }
-    .btn-solid { background: var(--navy); color: var(--white); border-color: var(--navy); }
-    .btn-solid::before { background: var(--blue); }
-    .btn-light { color: var(--white); }
-    .btn-light::before { background: var(--white); }
-    .btn-light:hover { color: var(--navy); }
-    .nav .btn { padding: 12px 22px; }
+    .btn:hover .arrow { width: 30px; }
+    .btn-solid { background: var(--blue); color: var(--white); }
+    .btn-solid::before { background: var(--blue-deep); }
+    .btn-white { background: var(--white); color: var(--blue); border-color: var(--white); }
+    .btn-white::before { background: var(--blue-light); }
+    .btn-white:hover { color: var(--blue); }
+    .nav .btn { padding: 12px 20px; }
 
-    /* ---------- 1. Hero: testo + foto verticale con riquadro sovrapposto ---------- */
-    .hero { min-height: 100vh; padding: 150px 0 100px; display: grid; align-items: center; background: linear-gradient(90deg, var(--white) 58%, var(--mist) 58%); }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; }
-    .hero h1 { font-size: clamp(3.2rem, 7vw, 6.6rem); margin: 26px 0 30px; font-weight: 300; }
-    .hero h1 .line { display: block; overflow: hidden; padding-bottom: .05em; }
-    .hero h1 .line span { display: block; transform: translateY(110%); animation: rise 1.3s var(--ease) forwards; }
+    /* ---------- 1. Portada: testo + foto con riquadro sovrapposto ---------- */
+    .hero { min-height: 100vh; padding: 140px 0 90px; display: grid; align-items: center; position: relative; }
+    .hero::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 38%; background: var(--blue-light); z-index: -1; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; align-items: center; }
+    .hero h1 { font-size: clamp(2.9rem, 6vw, 5.4rem); margin: 24px 0 28px; }
+    .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+    .hero h1 .line span { display: block; transform: translateY(110%); animation: rise 1.2s var(--ease) forwards; }
     .hero h1 .line:nth-child(2) span { animation-delay: .12s; }
-    .hero h1 .line:nth-child(3) span { animation-delay: .24s; }
-    .hero p.lead { font-size: 1.08rem; max-width: 40ch; margin-bottom: 40px; opacity: 0; animation: fade 1.2s .6s forwards; }
-    .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: fade 1.2s .8s forwards; }
-    .hero-visual { position: relative; opacity: 0; animation: fade 1.6s .3s forwards; }
+    .hero p.lead { font-size: 1.1rem; max-width: 42ch; margin-bottom: 40px; opacity: 0; animation: fade 1.1s .5s forwards; }
+    .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: fade 1.1s .7s forwards; }
+    .hero-visual { position: relative; opacity: 0; animation: fade 1.4s .25s forwards; }
     .hero-visual .photo { aspect-ratio: 4 / 5; }
-    .hero-card { position: absolute; left: -60px; bottom: 50px; z-index: 2; background: var(--navy); color: var(--white); padding: 28px 32px; max-width: 280px; box-shadow: 0 30px 60px rgba(13, 27, 54, .25); }
-    .hero-card .label { color: var(--sky); }
-    .hero-card p { font-family: var(--serif); font-size: 1.35rem; line-height: 1.25; margin-top: 10px; }
+    .hero-badge { position: absolute; left: -56px; bottom: 56px; z-index: 2; background: var(--blue); color: var(--white); padding: 26px 30px; display: flex; gap: 20px; align-items: center; box-shadow: 0 28px 60px rgba(21, 42, 82, .28); }
+    .hero-badge strong { font-family: var(--serif); font-size: 3rem; font-weight: 500; line-height: 1; }
+    .hero-badge span { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark); line-height: 1.5; }
+    .hero-badge::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: var(--gold); }
     @keyframes rise { to { transform: none; } }
     @keyframes fade { to { opacity: 1; } }
 
-    /* ---------- 2. Per chi lavoro: due pannelli affiancati ---------- */
-    .audience-head { text-align: center; max-width: 720px; margin: 0 auto 70px; }
-    .audience-head p { margin-top: 20px; }
-    .audience { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
-    .aud { padding: 60px 56px; position: relative; transition: background .6s var(--ease), color .6s var(--ease); }
-    .aud + .aud { border-left: 1px solid var(--line); }
-    .aud:hover { background: var(--navy); color: var(--white); }
-    .aud:hover .muted { color: var(--muted-dark); }
-    .aud:hover .aud-icon { color: var(--sky); border-color: var(--line-dark); }
-    .aud-icon { width: 64px; height: 64px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--blue); margin-bottom: 36px; transition: inherit; }
-    .aud-icon svg { width: 28px; height: 28px; }
-    .aud h3 { font-size: 2.2rem; margin-bottom: 16px; }
-    .aud ul { list-style: none; margin-top: 28px; display: grid; gap: 12px; }
-    .aud li { display: flex; gap: 14px; align-items: baseline; font-size: .95rem; }
-    .aud li::before { content: ""; flex: none; width: 14px; height: 1px; background: currentColor; transform: translateY(-4px); opacity: .6; }
+    /* ---------- 2. Servizi: tre schede con foto ---------- */
+    .head-center { text-align: center; max-width: 680px; margin: 0 auto 70px; }
+    .head-center .label::after { content: ""; width: 22px; height: 1px; background: var(--gold); }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .service { background: var(--white); border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
+    .service:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(30, 58, 110, .12); }
+    .service .photo { aspect-ratio: 4 / 3; }
+    .service-body { padding: 34px 32px 38px; position: relative; flex: 1; }
+    .service-num { position: absolute; top: -26px; right: 28px; width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: var(--white); display: grid; place-items: center; font-family: var(--serif); font-size: 1.3rem; z-index: 2; box-shadow: 0 0 0 6px var(--white); }
+    .service h3 { font-size: 1.9rem; margin-bottom: 12px; }
+    .service p { color: var(--muted); font-size: .97rem; }
+    .service .note { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .82rem; font-weight: 500; color: var(--blue-mid); }
+    .services-end { margin-top: 70px; text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(1.8rem, 3.4vw, 2.8rem); color: var(--blue); display: flex; align-items: center; justify-content: center; gap: 28px; }
+    .services-end::before, .services-end::after { content: ""; flex: 0 1 120px; height: 1px; background: var(--gold); }
 
-    /* ---------- 3. Servizi: griglia a mosaico con foto ---------- */
-    .services-section { background: var(--mist); }
-    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 70px; }
-    .section-head p { max-width: 38ch; }
-    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 18px; }
-    .tile { background: var(--white); padding: 34px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-    .tile .num { font-family: var(--serif); font-style: italic; color: var(--blue); font-size: 1.1rem; }
-    .tile h3 { font-size: 1.75rem; margin-bottom: 8px; }
-    .tile p { font-size: .92rem; color: var(--muted); }
-    .tile.photo-tile { padding: 0; }
-    .tile.photo-tile .photo { position: absolute; inset: 0; }
-    .tile.photo-tile .caption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 30px 34px; color: var(--white); background: linear-gradient(transparent, rgba(13, 27, 54, .85)); }
-    .tile.photo-tile .caption p { color: rgba(255, 255, 255, .8); }
-    .tile.navy { background: var(--navy); color: var(--white); }
-    .tile.navy p { color: var(--muted-dark); }
-    .tile.navy .num { color: var(--sky); }
-    .t-big { grid-column: span 2; grid-row: span 2; }
-    .t-wide { grid-column: span 2; }
+    /* ---------- 3. Perché sceglierci: quattro quadranti attorno a un emblema ---------- */
+    .why { display: grid; grid-template-columns: 1fr 1fr; position: relative; margin-top: 70px; }
+    .why-item { padding: 56px 60px; display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start; }
+    .why-item:nth-child(1), .why-item:nth-child(2) { border-bottom: 1px solid var(--line-dark); }
+    .why-item:nth-child(odd) { border-right: 1px solid var(--line-dark); }
+    .why-item svg { width: 44px; height: 44px; color: var(--white); }
+    .why-item h3 { font-size: 1.75rem; margin-bottom: 8px; }
+    .why-item p { color: var(--on-dark); font-size: .97rem; }
+    .why-seal { position: absolute; left: 50%; top: 50%; width: 112px; height: 112px; translate: -50% -50%; border-radius: 50%; background: var(--blue); border: 1px solid var(--line-dark); display: grid; place-items: center; box-shadow: 0 0 0 10px var(--blue); }
+    .why-seal svg { width: 52px; height: 52px; color: var(--white); }
+    .why-seal::after { content: ""; position: absolute; inset: 8px; border-radius: 50%; border: 1px solid var(--gold); opacity: .7; }
 
-    /* ---------- 4. Metodo: linea temporale orizzontale su blu ---------- */
-    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; margin-top: 80px; }
-    .timeline::before { content: ""; position: absolute; top: 28px; left: 0; right: 0; height: 1px; background: var(--line-dark); }
-    .timeline .progress { position: absolute; top: 28px; left: 0; height: 1px; width: 100%; background: var(--sky); transform: scaleX(0); transform-origin: left; transition: transform 2.4s var(--ease); }
-    .timeline.in .progress { transform: scaleX(1); }
-    .t-step { padding-right: 34px; position: relative; }
-    .t-dot { width: 57px; height: 57px; border-radius: 50%; border: 1px solid var(--sky); background: var(--navy); display: grid; place-items: center; font-family: var(--serif); font-size: 1.4rem; color: var(--white); position: relative; z-index: 1; margin-bottom: 34px; }
-    .t-step h3 { font-size: 1.8rem; margin-bottom: 10px; }
-    .t-step p { color: var(--muted-dark); font-size: .95rem; }
+    /* ---------- 4. Come funziona: percorso orizzontale ---------- */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 70px; position: relative; counter-reset: s; }
+    .steps::before { content: ""; position: absolute; top: 40px; left: 12%; right: 12%; height: 1px; background: var(--blue-soft); }
+    .steps .progress { position: absolute; top: 40px; left: 12%; right: 12%; height: 1px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 2.2s var(--ease) .3s; }
+    .steps.in .progress { transform: scaleX(1); }
+    .step { text-align: center; position: relative; }
+    .step-icon { width: 80px; height: 80px; margin: 0 auto 28px; border-radius: 50%; background: var(--white); border: 1px solid var(--blue-soft); display: grid; place-items: center; position: relative; z-index: 1; color: var(--blue); transition: background .5s, color .5s; }
+    .step:hover .step-icon { background: var(--blue); color: var(--white); }
+    .step-icon svg { width: 30px; height: 30px; }
+    .step-icon::after { counter-increment: s; content: counter(s); position: absolute; top: -4px; right: -4px; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: var(--white); font-size: .72rem; font-weight: 600; display: grid; place-items: center; }
+    .step h3 { font-size: 1.6rem; margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: .94rem; max-width: 26ch; margin-inline: auto; }
 
     /* ---------- 5. Chi sono: ritratto con cornice sfalsata ---------- */
-    .about { display: grid; grid-template-columns: .85fr 1.15fr; gap: 110px; align-items: center; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; align-items: center; }
     .portrait { position: relative; }
-    .portrait::before { content: ""; position: absolute; inset: 34px -34px -34px 34px; border: 1px solid var(--blue); z-index: 0; }
+    .portrait::before { content: ""; position: absolute; inset: 30px -30px -30px 30px; border: 1px solid var(--blue); }
+    .portrait::after { content: ""; position: absolute; left: -12px; top: -12px; width: 56px; height: 56px; border-left: 2px solid var(--gold); border-top: 2px solid var(--gold); }
     .portrait .photo { aspect-ratio: 3 / 4; z-index: 1; }
-    .about blockquote { font-family: var(--serif); font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.3; margin: 34px 0 28px; }
-    .about p + p { margin-top: 16px; }
-    .signature { margin-top: 40px; display: flex; align-items: center; gap: 20px; }
-    .signature span { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--navy); }
-    .signature::before { content: ""; width: 60px; height: 1px; background: var(--blue); }
+    .about-text p.big { font-family: var(--serif); font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.25; color: var(--blue); margin: 28px 0 34px; }
+    .about-text .signature { display: flex; align-items: center; gap: 18px; }
+    .about-text .signature::before { content: ""; width: 50px; height: 1px; background: var(--gold); }
+    .about-text .signature span { font-size: .78rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .about-text .btn { margin-top: 40px; }
 
-    /* ---------- 6. Impegni: fascia di icone ---------- */
-    .commit-section { background: var(--ice); padding: 110px 0; }
-    .commits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-    .commit { padding: 10px 34px; text-align: center; }
-    .commit + .commit { border-left: 1px solid var(--line); }
-    .commit svg { width: 40px; height: 40px; color: var(--blue); margin: 0 auto 24px; }
-    .commit h3 { font-size: 1.55rem; margin-bottom: 10px; }
-    .commit p { color: var(--muted); font-size: .92rem; }
+    /* ---------- 6. Zona: mappa astratta a cerchi concentrici ---------- */
+    .zone { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .zone-map { aspect-ratio: 1; max-width: 480px; width: 100%; justify-self: center; }
+    .zone-map svg { width: 100%; height: 100%; overflow: visible; }
+    .zone-map .ring-outer { stroke-dasharray: 6 8; animation: spin 60s linear infinite; transform-origin: 200px 200px; }
+    .zone-map .pulse { transform-origin: 200px 200px; animation: pulse 3s ease-out infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0% { transform: scale(.6); opacity: .5; } 100% { transform: scale(1.5); opacity: 0; } }
+    .zone h2 { margin-bottom: 26px; }
+    .zone-list { list-style: none; margin-top: 36px; display: grid; gap: 14px; }
+    .zone-list li { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--white); border: 1px solid var(--line); }
+    .zone-list .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+    .zone-list .dot.solid { background: var(--blue); }
+    .zone-list .dot.dashed { border: 1.5px dashed var(--blue-mid); }
 
-    /* ---------- 7. Domande frequenti: fisarmonica ---------- */
-    .faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 90px; }
-    .faq details { border-top: 1px solid var(--line); }
-    .faq details:last-child { border-bottom: 1px solid var(--line); }
-    .faq summary { list-style: none; cursor: pointer; padding: 28px 50px 28px 0; position: relative; font-family: var(--serif); font-size: 1.6rem; line-height: 1.2; }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::before, .faq summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 16px; height: 1px; background: var(--blue); transition: transform .5s var(--ease); }
-    .faq summary::after { transform: rotate(90deg); }
-    .faq details[open] summary::after { transform: rotate(0); }
-    .faq details p { padding: 0 50px 30px 0; color: var(--muted); }
+    /* ---------- Recensioni (nascosta finché non ci sono recensioni reali) ---------- */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .review { border: 1px solid var(--line); padding: 36px; }
+    .review blockquote { font-family: var(--serif); font-size: 1.35rem; color: var(--blue); }
+    .review cite { display: block; margin-top: 20px; font-style: normal; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 
-    /* ---------- 8. Contatti: pannello blu diviso ---------- */
-    .contact-section { padding-top: 0; }
-    .contact { display: grid; grid-template-columns: 1fr 1.15fr; background: var(--navy); color: var(--white); }
-    .contact-info { padding: 80px 70px; background: var(--navy-2); position: relative; overflow: hidden; }
-    .contact-info::after { content: ""; position: absolute; width: 420px; height: 420px; right: -180px; bottom: -180px; border: 1px solid var(--line-dark); border-radius: 50%; box-shadow: 0 0 0 60px rgba(255,255,255,.02), 0 0 0 120px rgba(255,255,255,.015); }
-    .contact-info h2 { font-size: clamp(2.4rem, 4.4vw, 3.8rem); margin-bottom: 24px; }
-    .contact-list { list-style: none; margin-top: 50px; display: grid; gap: 20px; position: relative; z-index: 1; }
-    .contact-list li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line-dark); }
-    .contact-list .k { font-size: .7rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--muted-dark); padding-top: 4px; }
-    form { padding: 80px 70px; display: grid; gap: 34px; align-content: center; }
+    /* ---------- 7. Contatti: pannello diviso ---------- */
+    .contact { display: grid; grid-template-columns: .9fr 1.1fr; box-shadow: 0 40px 80px rgba(30, 58, 110, .14); }
+    .contact-info { background: var(--blue); color: var(--white); padding: 70px 60px; position: relative; overflow: hidden; }
+    .contact-info::after { content: ""; position: absolute; width: 380px; height: 380px; right: -170px; bottom: -170px; border-radius: 50%; border: 1px solid var(--line-dark); box-shadow: 0 0 0 50px rgba(255,255,255,.03), 0 0 0 100px rgba(255,255,255,.02); }
+    .contact-info h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 22px; }
+    .contact-list { list-style: none; margin-top: 44px; display: grid; gap: 18px; position: relative; z-index: 1; }
+    .contact-list li { display: grid; grid-template-columns: 100px 1fr; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--line-dark); }
+    .contact-list .k { font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--on-dark); padding-top: 3px; }
+    .contact-info .btn { margin-top: 40px; position: relative; z-index: 1; }
+    form { background: var(--white); padding: 70px 60px; display: grid; gap: 30px; align-content: center; }
     .field { position: relative; }
-    .field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line-dark); color: var(--white); padding: 26px 0 12px; font: 300 1.05rem var(--sans); border-radius: 0; appearance: none; resize: none; }
+    .field label { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--ink); padding: 10px 0 12px; font: 400 1.02rem var(--sans); border-radius: 0; appearance: none; resize: none; }
     .field select { cursor: pointer; }
-    .field select option { color: var(--ink); }
-    .field label { position: absolute; left: 0; top: 0; font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--muted-dark); }
-    .field::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: var(--sky); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
+    .field::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); }
     .field:focus-within::after { transform: scaleX(1); }
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; }
-    .field input::placeholder, .field textarea::placeholder { color: rgba(255, 255, 255, .3); }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
-    .field.select::before { content: ""; position: absolute; right: 4px; bottom: 20px; width: 7px; height: 7px; border-right: 1px solid var(--sky); border-bottom: 1px solid var(--sky); transform: rotate(45deg); pointer-events: none; }
+    .field input::placeholder, .field textarea::placeholder { color: #a3abb9; }
+    .field.select::before { content: ""; position: absolute; right: 4px; bottom: 20px; width: 7px; height: 7px; border-right: 1px solid var(--blue); border-bottom: 1px solid var(--blue); transform: rotate(45deg); pointer-events: none; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .form-note { font-size: .8rem; color: var(--muted); }
 
-    footer { padding: 40px 0; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    footer { padding: 40px 0; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--line); }
     footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 
     /* ---------- Pulsante WhatsApp fisso ---------- */
-    .wa { position: fixed; right: 26px; bottom: 26px; z-index: 40; display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 999px; background: var(--navy); color: var(--white); box-shadow: 0 16px 40px rgba(13, 27, 54, .35); transition: transform .4s var(--ease), padding .4s var(--ease); }
+    .wa { position: fixed; right: 24px; bottom: 24px; z-index: 40; display: flex; align-items: center; gap: 12px; padding: 15px; border-radius: 999px; background: #1f9d55; color: var(--white); box-shadow: 0 14px 34px rgba(20, 33, 61, .3); transition: transform .4s var(--ease), padding .4s var(--ease); }
     .wa svg { width: 28px; height: 28px; flex: none; }
-    .wa .wa-text { max-width: 0; overflow: hidden; white-space: nowrap; font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; transition: max-width .5s var(--ease); }
-    .wa:hover { transform: translateY(-3px); padding-right: 22px; }
-    .wa:hover .wa-text { max-width: 220px; }
-    .wa::before { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1px solid var(--sky); animation: ring 3s ease-out infinite; }
-    @keyframes ring { 0% { transform: scale(1); opacity: .7; } 70%, 100% { transform: scale(1.35); opacity: 0; } }
+    .wa .wa-text { max-width: 0; overflow: hidden; white-space: nowrap; font-size: .76rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; transition: max-width .5s var(--ease); }
+    .wa:hover, .wa:focus-visible { transform: translateY(-3px); padding-right: 22px; }
+    .wa:hover .wa-text, .wa:focus-visible .wa-text { max-width: 220px; }
+    .wa::before { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid #1f9d55; animation: ring 3s ease-out infinite; }
+    @keyframes ring { 0% { transform: scale(1); opacity: .6; } 70%, 100% { transform: scale(1.35); opacity: 0; } }
 
     /* Apparizione al passaggio */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
     .reveal.in { opacity: 1; transform: none; }
     .d1 { transition-delay: .12s; } .d2 { transition-delay: .24s; } .d3 { transition-delay: .36s; }
 
     @media (max-width: 1000px) {
       .nav ul { display: none; }
-      .hero { background: var(--white); }
-      .hero-grid, .about, .faq-grid, .contact { grid-template-columns: 1fr; gap: 60px; }
-      .hero-card { left: 20px; bottom: 20px; }
-      .audience { grid-template-columns: 1fr; }
-      .aud + .aud { border-left: 0; border-top: 1px solid var(--line); }
-      .section-head { flex-direction: column; align-items: start; }
-      .bento { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; }
-      .timeline { grid-template-columns: 1fr 1fr; gap: 50px 0; }
-      .timeline::before, .timeline .progress { display: none; }
-      .commits { grid-template-columns: 1fr 1fr; gap: 50px 0; }
-      .commit:nth-child(3) { border-left: 0; }
-      .about { gap: 90px; }
-      .portrait { max-width: 440px; }
+      .hero::before { display: none; }
+      .hero-grid, .about, .zone { grid-template-columns: 1fr; gap: 60px; }
+      .hero-badge { left: 20px; bottom: 20px; }
+      .services { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+      .why-item { padding: 44px 34px; }
+      .why-seal { display: none; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 50px 24px; }
+      .steps::before, .steps .progress { display: none; }
+      .about { gap: 80px; }
+      .portrait { max-width: 420px; }
+      .contact { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
       section { padding: 100px 0; }
-      .contact-info, form { padding: 60px 40px; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .wrap { width: calc(100% - 32px); }
       .nav .btn { display: none; }
-      .aud { padding: 44px 28px; }
-      .bento { grid-template-columns: 1fr; }
-      .t-big, .t-wide { grid-column: span 1; }
-      .t-big { grid-row: span 1; height: 340px; }
-      .timeline, .commits { grid-template-columns: 1fr; }
-      .commit + .commit { border-left: 0; }
-      .portrait::before { inset: 20px -16px -20px 20px; }
+      .hero .ctas .btn { width: 100%; }
+      .why { grid-template-columns: 1fr; }
+      .why-item:nth-child(odd) { border-right: 0; }
+      .why-item:nth-child(3) { border-bottom: 1px solid var(--line-dark); }
+      .why-item { padding: 36px 4px; grid-template-columns: 44px 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .portrait::before { inset: 18px -14px -18px 18px; }
+      .contact-info, form { padding: 48px 24px; }
       .field-row { grid-template-columns: 1fr; }
-      .contact-info, form { padding: 50px 24px; }
       .contact-list li { grid-template-columns: 1fr; gap: 2px; }
-      footer .wrap { flex-direction: column; text-align: center; padding-bottom: 60px; }
-      .wa { right: 16px; bottom: 16px; }
+      .services-end::before, .services-end::after { display: none; }
+      footer .wrap { flex-direction: column; text-align: center; padding-bottom: 70px; }
+      /* Su mobile il pulsante WhatsApp mostra sempre il testo */
+      .wa { left: 16px; right: 16px; bottom: 16px; justify-content: center; padding: 15px 20px; }
+      .wa .wa-text { max-width: none; }
+      .wa:hover { transform: none; padding-right: 20px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .hero h1 .line span { transform: none; }
       .hero p.lead, .hero .ctas, .hero-visual, .reveal { opacity: 1; transform: none; }
-      .timeline .progress { transform: none; }
+      .steps .progress { transform: none; }
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#contenuto">Vai al contenuto</a>
 
-  <!-- Monogramma: cappello da mago e bacchetta, tratto sottile -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- Monogramma: cappello da mago e bacchetta -->
     <symbol id="logo" viewBox="0 0 64 64">
-      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 46 L31 10 Q34 6 36 12 L44 46" />
         <path d="M10 46 Q32 54 54 46" />
         <path d="M19.5 41 H42.5" />
         <path d="M40 30 L57 17" />
-        <path d="M57 8 V12 M57 22 V26 M48 17 H52 M62 17 H64" stroke-width="1.3" />
+        <path d="M57 8 V12 M57 22 V26 M48 17 H52 M62 17 H64" stroke-width="1.4" />
       </g>
     </symbol>
     <symbol id="wa-icon" viewBox="0 0 24 24">
@@ -278,250 +280,269 @@
     </symbol>
   </svg>
 
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Navigazione principale">
     <div class="wrap">
-      <a class="brand" href="#inizio" aria-label="Merlin, inizio">
-        <svg><use href="#logo" /></svg>
+      <a class="brand" href="#inizio" aria-label="Merlin, torna all'inizio">
+        <svg aria-hidden="true"><use href="#logo" /></svg>
         <span class="brand-name">MERLIN</span>
       </a>
       <ul>
-        <li><a href="#clienti">Per chi</a></li>
         <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#metodo">Metodo</a></li>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#come-funziona">Come funziona</a></li>
         <li><a href="#chi-sono">Chi sono</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
-      <a class="btn" href="#contatti">Richiedi un sopralluogo</a>
+      <a class="btn" href="#contatti">Sopralluogo gratuito</a>
     </div>
   </nav>
 
-  <!-- ================= 1. HERO ================= -->
+  <main id="contenuto">
+
+  <!-- ================= 1. PORTADA ================= -->
   <header class="hero" id="inizio">
     <div class="wrap hero-grid">
       <div>
-        <span class="label">Pulizia uffici · Milano</span>
+        <span class="label">Pulizie uffici · Milano</span>
         <h1>
-          <span class="line"><span>L'ufficio</span></span>
-          <span class="line"><span>che rispecchia</span></span>
-          <span class="line"><span><em>la sua immagine.</em></span></span>
+          <span class="line"><span>Il vostro ufficio impeccabile,</span></span>
+          <span class="line"><span><em>in mani sicure.</em></span></span>
         </h1>
-        <p class="lead muted">Pulizia professionale per PMI e studi professionali che curano ogni dettaglio. Un servizio discreto, preciso e su misura, con un unico referente.</p>
+        <p class="lead muted">Pulizie professionali per uffici e studi a Milano, 7 giorni su 7. Lavoriamo quando non ci siete.</p>
         <div class="ctas">
-          <a class="btn btn-solid" href="#contatti">Richiedi un sopralluogo <span class="arrow"></span></a>
-          <a class="btn" href="#servizi">Scopri i servizi</a>
+          <a class="btn btn-solid" href="#contatti">Richiedi un sopralluogo gratuito <span class="arrow" aria-hidden="true"></span></a>
+          <a class="btn js-wa" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa-icon" /></svg> WhatsApp</a>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="photo" data-label="Foto hero&#10;img/hero.jpg&#10;formato verticale 4:5">
-          <img src="img/hero.jpg" alt="Ufficio pulito e luminoso a Milano" onerror="this.remove()" />
-        </div>
-        <div class="hero-card">
-          <span class="label">Solo uffici</span>
-          <p>Un'unica specializzazione, la massima attenzione.</p>
-        </div>
+        <!-- Foto reale: img/hero.jpg (verticale 4:5) -->
+        <div class="photo"><img src="img/hero.jpg" alt="Ufficio pulito da Merlin" onerror="this.remove()" /></div>
+        <div class="hero-badge" aria-hidden="true"><strong>7/7</strong><span>Anche sera,<br />sabato e domenica</span></div>
       </div>
     </div>
   </header>
 
-  <!-- ================= 2. PER CHI LAVORO ================= -->
-  <section id="clienti">
+  <!-- ================= 2. SERVIZI ================= -->
+  <section class="alt" id="servizi">
     <div class="wrap">
-      <div class="audience-head reveal">
-        <span class="label">Per chi lavoro</span>
-        <h2>Due realtà,<br /><em>la stessa cura.</em></h2>
-        <p class="muted">Ogni ufficio ha un ritmo diverso. Il servizio si adatta al suo, non il contrario.</p>
+      <div class="head-center reveal">
+        <span class="label">Servizi</span>
+        <h2>Tre servizi,<br /><em>un solo standard.</em></h2>
       </div>
-      <div class="audience">
-        <div class="aud reveal">
-          <div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="7" width="18" height="14" /><path d="M8 7V3h8v4M3 13h18" /></svg></div>
-          <h3>PMI</h3>
-          <p class="muted">Uffici operativi con team in movimento, sale riunioni e aree comuni sempre in uso.</p>
-          <ul>
-            <li>Frequenza giornaliera o settimanale</li>
-            <li>Interventi fuori dall'orario di lavoro</li>
-            <li>Aree comuni, cucine e servizi sempre in ordine</li>
-          </ul>
-        </div>
-        <div class="aud reveal d1">
-          <div class="aud-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21h16M5 21V10l7-6 7 6v11" /><path d="M9 21v-6h6v6M9 11h6" /></svg></div>
-          <h3>Studi professionali</h3>
-          <p class="muted">Studi legali, notarili, di consulenza e architettura, dove l'accoglienza del cliente è parte del servizio.</p>
-          <ul>
-            <li>Massima riservatezza su documenti e archivi</li>
-            <li>Reception e sale clienti sempre impeccabili</li>
-            <li>Cura dei materiali pregiati e degli arredi</li>
-          </ul>
-        </div>
+      <div class="services">
+        <article class="service reveal">
+          <!-- Foto reale: img/servizio-ordinaria.jpg -->
+          <div class="photo"><img src="img/servizio-ordinaria.jpg" alt="Pulizia ordinaria di un ufficio" onerror="this.remove()" /></div>
+          <div class="service-body">
+            <span class="service-num" aria-hidden="true">1</span>
+            <h3>Pulizia ordinaria</h3>
+            <p>Giornaliera, settimanale o su misura. Scrivanie, pavimenti, bagni, cucina, cestini.</p>
+          </div>
+        </article>
+        <article class="service reveal d1">
+          <!-- Foto reale: img/servizio-fondo.jpg -->
+          <div class="photo"><img src="img/servizio-fondo.jpg" alt="Pulizia a fondo di un ufficio" onerror="this.remove()" /></div>
+          <div class="service-body">
+            <span class="service-num" aria-hidden="true">2</span>
+            <h3>Pulizia a fondo</h3>
+            <p>Periodica o una tantum, per gli angoli e le superfici che la pulizia ordinaria non raggiunge.</p>
+          </div>
+        </article>
+        <article class="service reveal d2">
+          <!-- Foto reale: img/servizio-vetri.jpg -->
+          <div class="photo"><img src="img/servizio-vetri.jpg" alt="Pulizia di vetri interni" onerror="this.remove()" /></div>
+          <div class="service-body">
+            <span class="service-num" aria-hidden="true">3</span>
+            <h3>Vetri interni</h3>
+            <p>Vetrate, divisori e finestre accessibili dall'interno.</p>
+            <p class="note">Nessun lavoro in altezza.</p>
+          </div>
+        </article>
       </div>
+      <p class="services-end reveal">Dal piccolo studio alla grande azienda.</p>
     </div>
   </section>
 
-  <!-- ================= 3. SERVIZI ================= -->
-  <section class="services-section" id="servizi">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="label">Servizi</span>
-          <h2>Ogni ambiente,<br /><em>con metodo.</em></h2>
-        </div>
-        <p class="muted reveal d1">Un servizio completo che copre tutti gli spazi del suo ufficio, con la stessa attenzione a ogni visita.</p>
-      </div>
-      <div class="bento">
-        <div class="tile photo-tile t-big reveal">
-          <div class="photo" data-label="Foto servizi 1&#10;img/servizio-1.jpg&#10;postazioni di lavoro">
-            <img src="img/servizio-1.jpg" alt="Postazioni di lavoro pulite" onerror="this.remove()" />
-          </div>
-          <div class="caption"><h3>Postazioni di lavoro</h3><p>Scrivanie, schermi, tastiere e telefoni igienizzati senza spostare i suoi documenti.</p></div>
-        </div>
-        <div class="tile reveal d1"><span class="num">02</span><div><h3>Reception e sale riunioni</h3><p>La prima impressione per i suoi clienti.</p></div></div>
-        <div class="tile navy reveal d2"><span class="num">03</span><div><h3>Pavimenti</h3><p>Trattamento specifico per legno, marmo, vinile e moquette.</p></div></div>
-        <div class="tile photo-tile reveal d1">
-          <div class="photo" data-label="Foto servizi 2&#10;img/servizio-2.jpg">
-            <img src="img/servizio-2.jpg" alt="Servizi igienici puliti" onerror="this.remove()" />
-          </div>
-          <div class="caption"><h3>Bagni e cucine</h3></div>
-        </div>
-        <div class="tile reveal d2"><span class="num">05</span><div><h3>Vetri e vetrate</h3><p>Finestre, pareti e porte in vetro senza aloni.</p></div></div>
-        <div class="tile photo-tile t-wide reveal">
-          <div class="photo" data-label="Foto servizi 3&#10;img/servizio-3.jpg&#10;formato orizzontale">
-            <img src="img/servizio-3.jpg" alt="Ufficio dopo una pulizia di fondo" onerror="this.remove()" />
-          </div>
-          <div class="caption"><h3>Pulizie di fondo</h3><p>Dopo lavori, traslochi o eventi: l'ufficio pronto da usare.</p></div>
-        </div>
-        <div class="tile navy t-wide reveal d1"><span class="num">07</span><div><h3>Servizio su misura</h3><p>Ha un'esigenza particolare? La valutiamo insieme durante il sopralluogo.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 4. METODO ================= -->
-  <section class="dark" id="metodo">
+  <!-- ================= 3. PERCHÉ SCEGLIERCI ================= -->
+  <section class="dark" id="perche">
     <div class="wrap">
       <div class="reveal">
-        <span class="label">Il metodo</span>
-        <h2>Semplice per lei.<br /><em>Rigoroso per me.</em></h2>
+        <span class="label">Perché sceglierci</span>
+        <h2>Fiducia, <em>prima di tutto.</em></h2>
       </div>
-      <div class="timeline reveal" id="timeline">
-        <span class="progress"></span>
-        <div class="t-step"><div class="t-dot">I</div><h3>Contatto</h3><p>Mi racconta com'è il suo ufficio, i suoi orari e cosa si aspetta dal servizio.</p></div>
-        <div class="t-step"><div class="t-dot">II</div><h3>Sopralluogo</h3><p>Visito gli spazi di persona per conoscere ambienti, materiali ed esigenze.</p></div>
-        <div class="t-step"><div class="t-dot">III</div><h3>Proposta</h3><p>Riceve un piano su misura con un preventivo chiaro e trasparente.</p></div>
-        <div class="t-step"><div class="t-dot">IV</div><h3>Servizio</h3><p>Pulizia negli orari concordati, con la stessa cura a ogni intervento.</p></div>
+      <div class="why">
+        <div class="why-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" /><path d="M3 10h18M8 3v4M16 3v4" /><path d="M8 15l2.5 2.5L16 13" /></svg>
+          <div><h3>7 giorni su 7</h3><p>Anche sera, sabato e domenica.</p></div>
+        </div>
+        <div class="why-item reveal d1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="8" cy="15" r="4" /><path d="M11 12l9-9M17 6l3 3M15 8l2 2" /></svg>
+          <div><h3>Esperienza nella sicurezza</h3><p>Gestione di chiavi e accessi con la massima riservatezza.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="5" y="4" width="14" height="17" /><path d="M9 4V2h6v2" /><path d="M9 12l2 2 4-4" /></svg>
+          <div><h3>Controllo di qualità</h3><p>Un responsabile controlla ogni pulizia.</p></div>
+        </div>
+        <div class="why-item reveal d1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z" /><path d="M9 11h6M9 14h4" /></svg>
+          <div><h3>Un unico referente</h3><p>Sempre raggiungibile su WhatsApp.</p></div>
+        </div>
+        <div class="why-seal" aria-hidden="true"><svg><use href="#logo" /></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. COME FUNZIONA ================= -->
+  <section id="come-funziona">
+    <div class="wrap">
+      <div class="head-center reveal">
+        <span class="label">Come funziona</span>
+        <h2>Quattro passi, <em>nessuna sorpresa.</em></h2>
+      </div>
+      <div class="steps reveal">
+        <span class="progress" aria-hidden="true"></span>
+        <div class="step">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" /></svg></div>
+          <h3>Ci contatti</h3><p>Via modulo o WhatsApp, ci racconta le sue esigenze.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" /></svg></div>
+          <h3>Sopralluogo gratuito</h3><p>Veniamo a vedere gli spazi di persona.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M9 13h7M9 17h5" /></svg></div>
+          <h3>Preventivo su misura</h3><p>Una proposta chiara, costruita sul suo ufficio.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg></div>
+          <h3>Inizio del servizio</h3><p>Con controllo costante della qualità.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ================= 5. CHI SONO ================= -->
-  <section id="chi-sono">
+  <section class="alt" id="chi-sono">
     <div class="wrap about">
       <div class="portrait reveal">
-        <div class="photo" data-label="La sua foto&#10;img/merlin.jpg&#10;ritratto verticale 3:4">
-          <img src="img/merlin.jpg" alt="Merlin, fondatore" onerror="this.remove()" />
-        </div>
+        <!-- Foto reale: img/fondatore.jpg (verticale 3:4) -->
+        <div class="photo"><img src="img/fondatore.jpg" alt="Mier, fondatore di Merlin" onerror="this.remove()" /></div>
+      </div>
+      <div class="about-text">
+        <span class="label reveal">Chi sono</span>
+        <p class="big reveal d1">Sono Mier, fondatore di Merlin. Coordino il team e sono il vostro referente diretto.</p>
+        <div class="signature reveal d2"><span>Mier · Fondatore</span></div>
+        <a class="btn btn-solid js-wa reveal d3" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa-icon" /></svg> Scrivimi su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. ZONA ================= -->
+  <section id="zona">
+    <div class="wrap zone">
+      <div class="zone-map reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <circle class="ring-outer" cx="200" cy="200" r="185" fill="none" stroke="#3d5f9e" stroke-width="1.2" />
+          <circle cx="200" cy="200" r="120" fill="#eef3fa" stroke="#1e3a6e" stroke-width="1.2" />
+          <circle class="pulse" cx="200" cy="200" r="60" fill="#1e3a6e" opacity=".25" />
+          <circle cx="200" cy="200" r="9" fill="#1e3a6e" />
+          <circle cx="200" cy="200" r="16" fill="none" stroke="#c4a45f" stroke-width="1" />
+          <text x="200" y="245" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="26" font-weight="600" fill="#1e3a6e">Milano</text>
+          <text x="200" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" letter-spacing="3" fill="#3d5f9e">HINTERLAND SU RICHIESTA</text>
+        </svg>
       </div>
       <div>
-        <span class="label reveal">Chi sono</span>
-        <blockquote class="reveal d1">«Credo che un ufficio curato parli di chi ci lavora prima ancora di una parola.»</blockquote>
-        <p class="muted reveal d2">Mi chiamo Merlin e mi occupo esclusivamente di pulizia di uffici a Milano. Ho scelto una sola specializzazione per poterla fare al meglio.</p>
-        <p class="muted reveal d2">Quando lavora con me, ha sempre lo stesso referente: conosco il suo spazio, le sue abitudini e le sue priorità. Lavoro in silenzio, fuori dal suo orario, perché il giorno dopo trovi soltanto il risultato.</p>
-        <div class="signature reveal d3"><span>Merlin</span></div>
+        <span class="label reveal">Zona</span>
+        <h2 class="reveal d1">Dove <em>lavoriamo.</em></h2>
+        <p class="muted reveal d1">Milano e hinterland su richiesta.</p>
+        <ul class="zone-list reveal d2">
+          <li><span class="dot solid" aria-hidden="true"></span>Milano</li>
+          <li><span class="dot dashed" aria-hidden="true"></span>Hinterland su richiesta</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ================= 6. IMPEGNI ================= -->
-  <section class="commit-section">
-    <div class="wrap commits">
-      <div class="commit reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="10" width="14" height="11" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
-        <h3>Riservatezza</h3><p>Rispetto totale per documenti, archivi e attrezzature.</p>
+  <!-- ================= RECENSIONI (nascosta) =================
+       Per attivarla: togliere l'attributo "hidden" e inserire SOLO recensioni reali,
+       copiando il blocco <figure class="review"> per ognuna. -->
+  <section class="alt" id="recensioni" hidden>
+    <div class="wrap">
+      <div class="head-center">
+        <span class="label">Recensioni</span>
+        <h2>Cosa dicono <em>di noi.</em></h2>
       </div>
-      <div class="commit reveal d1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
-        <h3>Orari flessibili</h3><p>Prima dell'apertura, dopo la chiusura o nel weekend.</p>
-      </div>
-      <div class="commit reveal d2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4" /><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" /></svg>
-        <h3>Un solo referente</h3><p>Nessun intermediario: parla sempre direttamente con me.</p>
-      </div>
-      <div class="commit reveal d3">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z" /></svg>
-        <h3>Cura dei materiali</h3><p>Prodotti professionali scelti per ogni superficie.</p>
+      <div class="reviews-grid">
+        <figure class="review">
+          <blockquote>Testo della recensione reale.</blockquote>
+          <cite>Nome · Azienda</cite>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ================= 7. FAQ ================= -->
-  <section>
-    <div class="wrap faq-grid">
-      <div class="reveal">
-        <span class="label">Domande frequenti</span>
-        <h2>Prima di<br /><em>iniziare.</em></h2>
-      </div>
-      <div class="faq reveal d1">
-        <details open><summary>Come si richiede un preventivo?</summary><p>Compili il modulo qui sotto o mi scriva su WhatsApp. Fissiamo un sopralluogo e, dopo aver visto gli spazi, le invio una proposta su misura.</p></details>
-        <details><summary>In quali orari lavora?</summary><p>Gli orari si concordano insieme: prima dell'apertura, dopo la chiusura o nel fine settimana, per non interferire con il lavoro del suo team.</p></details>
-        <details><summary>Con quale frequenza posso richiedere il servizio?</summary><p>Giornaliera, più volte a settimana, settimanale o per interventi singoli, come una pulizia di fondo dopo lavori o traslochi.</p></details>
-        <details><summary>In quali zone opera?</summary><p>Milano e dintorni. Se il suo ufficio si trova fuori città, mi contatti e verifichiamo insieme la disponibilità.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 8. CONTATTI ================= -->
-  <section class="contact-section" id="contatti">
+  <!-- ================= 7. CONTATTI ================= -->
+  <section class="alt" id="contatti">
     <div class="wrap">
       <div class="contact reveal">
-        <div class="contact-info">
+        <div class="contact-info dark">
           <span class="label">Contatti</span>
-          <h2>Parliamo del<br /><em>suo ufficio.</em></h2>
-          <p class="muted">Mi racconti i suoi spazi e le proporrò un sopralluogo senza impegno.</p>
+          <h2>Richieda il suo<br /><em>sopralluogo gratuito.</em></h2>
+          <p class="muted">Compili il modulo: si aprirà WhatsApp con il messaggio già pronto.</p>
           <ul class="contact-list">
-            <li><span class="k">Zona</span><span>Milano e dintorni</span></li>
-            <li><span class="k">Orari</span><span>Da concordare insieme</span></li>
+            <li><span class="k">Zona</span><span>Milano e hinterland su richiesta</span></li>
+            <li><span class="k">Orari</span><span>7 giorni su 7</span></li>
             <li><span class="k">WhatsApp</span><span id="waDisplay">—</span></li>
           </ul>
+          <a class="btn btn-white js-wa" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa-icon" /></svg> Scrivici ora</a>
         </div>
         <form id="quoteForm">
           <div class="field-row">
-            <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" required placeholder="Il suo nome" /></div>
-            <div class="field"><label for="f-azienda">Azienda / Studio</label><input id="f-azienda" name="azienda" placeholder="Nome dell'azienda" /></div>
+            <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" autocomplete="name" required placeholder="Nome e cognome" /></div>
+            <div class="field"><label for="f-azienda">Azienda</label><input id="f-azienda" name="azienda" autocomplete="organization" placeholder="Nome dell'azienda o studio" /></div>
           </div>
           <div class="field-row">
-            <div class="field select"><label for="f-tipo">Tipo di ufficio</label>
-              <select id="f-tipo" name="tipo"><option>PMI</option><option>Studio professionale</option><option>Altro</option></select>
-            </div>
-            <div class="field select"><label for="f-superficie">Superficie</label>
-              <select id="f-superficie" name="superficie"><option>Meno di 100 m²</option><option>100 – 300 m²</option><option>300 – 600 m²</option><option>Oltre 600 m²</option></select>
-            </div>
+            <div class="field"><label for="f-telefono">Telefono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" required placeholder="+39 ..." /></div>
+            <div class="field"><label for="f-mq">Metri quadri (circa)</label><input id="f-mq" name="mq" type="number" min="1" inputmode="numeric" placeholder="Es. 150" /></div>
           </div>
-          <div class="field select"><label for="f-frequenza">Frequenza</label>
-            <select id="f-frequenza" name="frequenza"><option>Giornaliera</option><option>2–3 volte a settimana</option><option>Settimanale</option><option>Intervento singolo</option></select>
+          <div class="field select"><label for="f-servizio">Servizio</label>
+            <select id="f-servizio" name="servizio">
+              <option>Pulizia ordinaria</option>
+              <option>Pulizia a fondo</option>
+              <option>Vetri interni</option>
+              <option>Non so ancora / più servizi</option>
+            </select>
           </div>
-          <div class="field"><label for="f-messaggio">Messaggio</label><textarea id="f-messaggio" name="messaggio" rows="3" placeholder="Qualcosa che dovrei sapere?"></textarea></div>
-          <div><button class="btn btn-light" type="submit">Invia su WhatsApp <span class="arrow"></span></button></div>
+          <div class="field"><label for="f-messaggio">Messaggio</label><textarea id="f-messaggio" name="messaggio" rows="3" placeholder="Frequenza, orari preferiti, esigenze particolari..."></textarea></div>
+          <div><button class="btn btn-solid" type="submit">Invia su WhatsApp <span class="arrow" aria-hidden="true"></span></button></div>
+          <p class="form-note">I dati vengono inviati solo tramite WhatsApp, non vengono salvati su questo sito.</p>
         </form>
       </div>
     </div>
   </section>
 
+  </main>
+
   <footer>
     <div class="wrap">
-      <a class="brand" href="#inizio"><svg><use href="#logo" /></svg><span class="brand-name">MERLIN</span></a>
-      <span>Pulizia uffici · Milano</span>
+      <a class="brand" href="#inizio"><svg aria-hidden="true"><use href="#logo" /></svg><span class="brand-name">MERLIN</span></a>
+      <span>Pulizie uffici · Milano</span>
       <span>© <span id="year"></span></span>
     </div>
   </footer>
 
-  <!-- Pulsante WhatsApp fisso -->
-  <a class="wa" id="waButton" href="#" target="_blank" rel="noopener" aria-label="Scrivimi su WhatsApp">
-    <svg><use href="#wa-icon" /></svg><span class="wa-text">Scrivimi su WhatsApp</span>
+  <!-- Pulsante WhatsApp fisso (su mobile: barra larga con testo) -->
+  <a class="wa js-wa" href="#" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+    <svg aria-hidden="true"><use href="#wa-icon" /></svg><span class="wa-text">Scrivici su WhatsApp</span>
   </a>
 
   <script>
-    // ⚠️ Inserisca qui il suo numero WhatsApp (prefisso internazionale, senza + né spazi). Es.: "393401234567"
+    // ⚠️ Inserire qui il numero WhatsApp (prefisso internazionale, senza + né spazi). Es.: "393401234567"
     const WHATSAPP_NUMBER = "39XXXXXXXXXX";
 
     const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-    document.getElementById("waButton").href = waLink("Buongiorno Merlin, vorrei informazioni sul servizio di pulizia uffici.");
+    const defaultMsg = "Buongiorno, vorrei informazioni sulle pulizie per il mio ufficio.";
+    document.querySelectorAll(".js-wa").forEach((a) => (a.href = waLink(defaultMsg)));
     document.getElementById("waDisplay").textContent = "+" + WHATSAPP_NUMBER.replace(/^(\d{2})(\d{3})(\d+)$/, "$1 $2 $3");
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -537,9 +558,12 @@
     document.getElementById("quoteForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const f = new FormData(e.target);
-      const text = `Buongiorno Merlin, vorrei richiedere un sopralluogo.\n\n` +
-        `Nome: ${f.get("nome")}\nAzienda: ${f.get("azienda") || "-"}\n` +
-        `Tipo: ${f.get("tipo")}\nSuperficie: ${f.get("superficie")}\nFrequenza: ${f.get("frequenza")}\n` +
+      const text = `Buongiorno, vorrei richiedere un sopralluogo gratuito.\n\n` +
+        `Nome: ${f.get("nome")}\n` +
+        `Azienda: ${f.get("azienda") || "-"}\n` +
+        `Telefono: ${f.get("telefono")}\n` +
+        `Metri quadri: ${f.get("mq") ? f.get("mq") + " m² circa" : "-"}\n` +
+        `Servizio: ${f.get("servizio")}\n` +
         `Messaggio: ${f.get("messaggio") || "-"}`;
       window.open(waLink(text), "_blank", "noopener");
     });
